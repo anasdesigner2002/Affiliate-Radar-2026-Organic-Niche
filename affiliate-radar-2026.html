@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Radar 2026 — Organic Niche &amp; Product Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --ink:#0a1128;
+    --ink-soft:#4a5578;
+    --ink-faint:#7c87ac;
+    --blue-900:#0a2472;
+    --blue-700:#134fd6;
+    --blue-600:#2563eb;
+    --blue-500:#4c8dff;
+    --blue-200:#d3e3fd;
+    --blue-100:#eaf2ff;
+    --blue-050:#f5f9ff;
+    --radius-lg:22px;
+    --radius-md:14px;
+    --radius-sm:8px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3,h4{margin:0;font-weight:700;letter-spacing:-0.01em;}
+  p{margin:0;}
+
+  :focus-visible{outline:2.5px solid var(--blue-700);outline-offset:3px;border-radius:4px;}
+
+  /* ---------- custom rounded cursor ---------- */
+  @media (hover:hover) and (pointer:fine){
+    body.cursor-ready, body.cursor-ready *{cursor:none;}
+    .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;will-change:transform;}
+    .cursor-dot{width:8px;height:8px;background:var(--blue-700);transition:opacity .2s ease;}
+    .cursor-ring{width:38px;height:38px;border:1.5px solid var(--blue-500);transition:width .25s cubic-bezier(.2,.8,.2,1),height .25s cubic-bezier(.2,.8,.2,1),background-color .25s ease,border-color .25s ease;}
+    body.cursor-hover .cursor-ring{width:68px;height:68px;background:rgba(19,79,214,.08);border-color:var(--blue-700);}
+    body.cursor-hover .cursor-dot{opacity:0;}
+  }
+
+  /* ---------- text highlight-on-hover ---------- */
+  .hl{
+    background-image:linear-gradient(120deg,var(--blue-100),var(--blue-100));
+    background-repeat:no-repeat;
+    background-size:0% 100%;
+    background-position:0 88%;
+    transition:background-size .32s ease;
+    border-radius:4px;
+    padding:0 .06em;
+  }
+  .hl:hover{background-size:100% 100%;}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .cursor-dot,.cursor-ring{display:none;}
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--blue-700);
+    font-weight:600;
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:500;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--blue-100);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:var(--maxw);margin:0 auto;
+  }
+  .logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.02rem;}
+  .logo-mark{width:26px;height:26px;border-radius:50%;background:conic-gradient(var(--blue-700),var(--blue-500),var(--blue-100));flex-shrink:0;}
+  .navlinks{display:flex;gap:30px;font-size:.92rem;font-weight:500;color:var(--ink-soft);}
+  .navlinks a:hover{color:var(--blue-700);}
+  @media (max-width:680px){.navlinks{display:none;}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:76px 0 60px;background:linear-gradient(180deg,var(--blue-050) 0%, var(--white) 78%);}
+  .hero-top{max-width:760px;}
+  .hero h1{
+    font-size:clamp(2.1rem,4.6vw,3.4rem);
+    line-height:1.08;
+    margin-top:18px;
+    color:var(--blue-900);
+  }
+  .hero h1 span{color:var(--blue-700);}
+  .hero p.sub{
+    margin-top:20px;font-size:1.08rem;line-height:1.65;color:var(--ink-soft);max-width:620px;
+  }
+  .hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:100px;font-weight:600;font-size:.94rem;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary{background:var(--blue-700);color:var(--white);box-shadow:0 10px 24px -8px rgba(19,79,214,.55);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 28px -8px rgba(19,79,214,.6);}
+  .btn-ghost{background:var(--white);color:var(--blue-900);border:1.5px solid var(--blue-200);}
+  .btn-ghost:hover{border-color:var(--blue-700);transform:translateY(-2px);}
+
+  /* ---------- niche grid ---------- */
+  .niche-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:56px 0 22px;flex-wrap:wrap;}
+  .niche-head h2{font-size:1.5rem;color:var(--blue-900);}
+  .niche-head .cnt{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--ink-faint);}
+
+  .niche-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(215px,1fr));
+    gap:16px;
+  }
+  .n-card{
+    background:var(--white);
+    border:1.5px solid var(--blue-100);
+    border-radius:var(--radius-md);
+    padding:20px;
+    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .n-card:hover{border-color:var(--blue-500);transform:translateY(-4px);box-shadow:0 16px 30px -18px rgba(10,36,114,.3);}
+  .n-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .n-rank{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-faint);}
+  .score-ring{
+    width:52px;height:52px;border-radius:50%;
+    background:conic-gradient(var(--blue-700) calc(var(--pct,0)*1%), var(--blue-100) 0);
+    display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;
+  }
+  .score-ring::before{content:'';position:absolute;inset:5px;background:var(--white);border-radius:50%;}
+  .score-ring span{position:relative;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.72rem;color:var(--blue-900);}
+  .n-card h3{font-size:1rem;color:var(--ink);}
+  .n-card p{font-size:.87rem;line-height:1.55;color:var(--ink-soft);}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.03em;text-transform:uppercase;background:var(--blue-100);color:var(--blue-700);padding:4px 8px;border-radius:20px;}
+
+  /* ---------- belief / stats ---------- */
+  .belief{padding:80px 0;background:var(--blue-900);color:var(--white);}
+  .belief .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;}
+  @media (max-width:820px){.belief .wrap{grid-template-columns:1fr;}}
+  .belief h2{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.25;color:var(--white);}
+  .belief p.body{margin-top:16px;color:#c3d3fb;line-height:1.7;font-size:1rem;max-width:480px;}
+  .stat-list{display:flex;flex-direction:column;gap:22px;}
+  .stat{border-left:2px solid var(--blue-500);padding-left:18px;}
+  .stat .num{font-family:'JetBrains Mono',monospace;font-size:1.9rem;font-weight:600;color:var(--white);}
+  .stat .label{font-size:.87rem;color:#a9bdf2;margin-top:4px;line-height:1.5;}
+
+  /* ---------- product ladder ---------- */
+  .ladder{padding:80px 0 40px;}
+  .ladder-head{max-width:640px;margin-bottom:46px;}
+  .ladder-head h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--blue-900);margin-top:14px;}
+  .ladder-head p{margin-top:14px;color:var(--ink-soft);line-height:1.6;font-size:1.02rem;}
+
+  .tier{margin-bottom:52px;}
+  .tier-label{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+  .tier-badge{
+    font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.08em;
+    color:var(--white);background:var(--blue-700);padding:6px 14px;border-radius:20px;text-transform:uppercase;
+  }
+  .tier-title{font-size:1.1rem;color:var(--blue-900);font-weight:600;}
+  .tier-sub{font-size:.85rem;color:var(--ink-faint);margin-left:auto;}
+  @media (max-width:640px){.tier-sub{display:none;}}
+
+  .p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+  .p-card{
+    border:1.5px solid var(--blue-100);border-radius:var(--radius-md);padding:24px;
+    display:flex;flex-direction:column;gap:10px;
+    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .p-card:hover{border-color:var(--blue-500);transform:translateY(-4px);box-shadow:0 16px 30px -18px rgba(10,36,114,.25);}
+  .p-step{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--blue-700);font-weight:600;}
+  .p-card h4{font-size:1.05rem;color:var(--ink);}
+  .p-card .what{font-size:.85rem;color:var(--ink-soft);line-height:1.55;}
+  .p-card .why{font-size:.85rem;color:var(--ink-soft);line-height:1.55;padding-top:6px;border-top:1px dashed var(--blue-200);margin-top:2px;}
+  .p-card .why b{color:var(--blue-900);}
+  .commission{
+    margin-top:auto;padding-top:10px;
+    font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--blue-900);font-weight:600;
+  }
+  .commission span{color:var(--ink-faint);font-weight:400;text-transform:uppercase;font-size:.68rem;letter-spacing:.05em;display:block;margin-bottom:3px;}
+
+  /* ---------- cta footer ---------- */
+  .cta-section{padding:90px 0;text-align:center;background:linear-gradient(180deg,var(--white),var(--blue-050));}
+  .cta-section h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:var(--blue-900);max-width:640px;margin:0 auto;line-height:1.25;}
+  .cta-section p{margin:18px auto 0;color:var(--ink-soft);max-width:480px;line-height:1.6;}
+  .cta-section .hero-cta{justify-content:center;margin-top:28px;}
+
+  footer{padding:34px 0;border-top:1px solid var(--blue-100);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer p{font-size:.82rem;color:var(--ink-faint);}
+
+  @media (max-width:540px){
+    .wrap{padding:0 20px;}
+    .hero{padding:52px 0 40px;}
+    .niche-head{margin-top:44px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<header>
+  <nav>
+    <div class="logo"><span class="logo-mark"></span><span>Affiliate&nbsp;Radar<span style="color:var(--blue-700)">&nbsp;2026</span></span></div>
+    <div class="navlinks">
+      <a href="#niches" class="hl">Top Niches</a>
+      <a href="#ladder" class="hl">Product Ladder</a>
+      <a href="#why" class="hl">Why Organic</a>
+    </div>
+    <a href="#ladder" class="btn btn-ghost" style="padding:9px 18px;font-size:.85rem;">Start Building</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="eyebrow">Organic Affiliate Strategy · US Market · 2026</span>
+      <h1>10 niches worth <span class="hl">building</span> on.<br>Zero <span>ad spend</span> required.</h1>
+      <p class="sub">Every niche below was scored against buyer intent, virality, AI-content leverage, and five-year staying power — then ranked into a single radar you can act on today.</p>
+      <div class="hero-cta">
+        <a href="#niches" class="btn btn-primary">See the Top 10 →</a>
+        <a href="#ladder" class="btn btn-ghost">View the Product Ladder</a>
+      </div>
+    </div>
+
+    <div class="niche-head reveal" id="niches">
+      <h2>The Top 10 Opportunity Score</h2>
+      <span class="cnt">RANKED / 100</span>
+    </div>
+
+    <div class="niche-grid" id="niche-grid"></div>
+  </div>
+</section>
+
+<section class="belief" id="why">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--blue-500);">Why Organic, Why Now</span>
+      <h2 style="margin-top:14px;">Ads got expensive.<br>Trust didn't.</h2>
+      <p class="body">AI leveled the production playing field — anyone can make a clean video now. What it can't fake is a real result, a real routine, a real &ldquo;this actually worked for me.&rdquo; That gap is exactly what organic affiliates are built to fill, and it's why platforms keep rewarding authentic, repeatable content over polished ads.</p>
+    </div>
+    <div class="stat-list reveal">
+      <div class="stat"><div class="num">22%+</div><div class="label">of TikTok Shop's US GMV comes from beauty &amp; personal care alone</div></div>
+      <div class="stat"><div class="num">+55%</div><div class="label">year-over-year growth in wellness content — the platform's fastest-growing category</div></div>
+      <div class="stat"><div class="num">20–50%</div><div class="label">typical recurring commission on AI &amp; SaaS tools, often for the life of the subscription</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ladder" id="ladder">
+  <div class="wrap">
+    <div class="ladder-head reveal">
+      <span class="eyebrow">The Product Ladder</span>
+      <h2>Ten products, three tiers, one <span class="hl">clear path</span> from first post to real income.</h2>
+      <p>Start where the trust barrier is lowest. Climb toward recurring, higher-ticket commissions as your audience — and your credibility — grows.</p>
+    </div>
+
+    <!-- TIER 1 -->
+    <div class="tier reveal">
+      <div class="tier-label">
+        <span class="tier-badge">Tier 1 · Start Here</span>
+        <span class="tier-title">Beginner</span>
+        <span class="tier-sub">Low trust barrier · fast first commission</span>
+      </div>
+      <div class="p-grid">
+        <div class="p-card">
+          <span class="p-step">STEP 01</span>
+          <h4 class="hl">Skincare &amp; K-Beauty Finds</h4>
+          <p class="what">Serums, routines, and skincare devices via TikTok Shop Affiliate or Amazon Associates.</p>
+          <p class="why"><b>Why start here:</b> zero authority required — a close-up demo and a real result does the selling for you.</p>
+          <div class="commission"><span>Commission</span>5–20% per sale</div>
+        </div>
+        <div class="p-card">
+          <span class="p-step">STEP 02</span>
+          <h4 class="hl">Fragrance &amp; Perfume Dupes</h4>
+          <p class="what">Designer dupes and niche fragrance promotion through TikTok Shop's affiliate marketplace.</p>
+          <p class="why"><b>Why start here:</b> you can't show scent, so it forces you to master storytelling hooks — the most transferable skill in this business.</p>
+          <div class="commission"><span>Commission</span>8–15% per sale</div>
+        </div>
+        <div class="p-card">
+          <span class="p-step">STEP 03</span>
+          <h4 class="hl">Daily Supplement Stacks</h4>
+          <p class="what">Collagen, magnesium, and gut-health subscriptions through networks like ShareASale or Impact.</p>
+          <p class="why"><b>Why start here:</b> subscription rebills mean one video keeps paying out for months after you post it.</p>
+          <div class="commission"><span>Commission</span>15–30%, often recurring</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 2 -->
+    <div class="tier reveal">
+      <div class="tier-label">
+        <span class="tier-badge">Tier 2 · Growth</span>
+        <span class="tier-title">Intermediate</span>
+        <span class="tier-sub">Needs a little audience trust</span>
+      </div>
+      <div class="p-grid">
+        <div class="p-card">
+          <span class="p-step">STEP 04</span>
+          <h4 class="hl">Home Workout &amp; Fitness Apps</h4>
+          <p class="what">App subscriptions promoted through progress updates and program breakdowns.</p>
+          <p class="why"><b>Why now:</b> takes more consistency to build, but recurring commission starts to compound fast.</p>
+          <div class="commission"><span>Commission</span>20–40% recurring</div>
+        </div>
+        <div class="p-card">
+          <span class="p-step">STEP 05</span>
+          <h4 class="hl">Personal Finance &amp; Budgeting Apps</h4>
+          <p class="what">Budgeting, cashback, and credit-building tools people search for by name.</p>
+          <p class="why"><b>Why now:</b> needs a credible narrative — the audience trust you've built makes this convert.</p>
+          <div class="commission"><span>Commission</span>$20–150 flat or 20–40% recurring</div>
+        </div>
+        <div class="p-card">
+          <span class="p-step">STEP 06</span>
+          <h4 class="hl">Online Courses &amp; Certifications</h4>
+          <p class="what">Skill-based courses in design, coding, trading, or language learning.</p>
+          <p class="why"><b>Why now:</b> your &ldquo;I taught myself this&rdquo; story is believable now — and payouts per sale rank among the highest here.</p>
+          <div class="commission"><span>Commission</span>20–50% per sale</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="tier reveal">
+      <div class="tier-label">
+        <span class="tier-badge">Tier 3 · Scale</span>
+        <span class="tier-title">Advanced</span>
+        <span class="tier-sub">Highest ticket · longest payout life</span>
+      </div>
+      <div class="p-grid">
+        <div class="p-card">
+          <span class="p-step">STEP 07</span>
+          <h4 class="hl">AI Productivity &amp; Writing Tools</h4>
+          <p class="what">AI workspaces, writing assistants, and SEO copilots — the tools everyone is anxious to master.</p>
+          <p class="why"><b>Why now:</b> the highest-leverage niche on the whole radar — commission on tools people renew for years.</p>
+          <div class="commission"><span>Commission</span>20–50% recurring, some lifetime</div>
+        </div>
+        <div class="p-card">
+          <span class="p-step">STEP 08</span>
+          <h4 class="hl">AI Video &amp; Avatar Creation Tools</h4>
+          <p class="what">Faceless video generators, talking-avatar tools, and voice cloning software.</p>
+          <p class="why"><b>Why now:</b> you use the product to make the content about the product — a closed loop few other niches offer.</p>
+          <div class="commission"><span>Commission</span>20–30% recurring</div>
+        </div>
+        <div class="p-card">
+          <span class="p-step">STEP 09</span>
+          <h4 class="hl">VPN &amp; Cybersecurity Tools</h4>
+          <p class="what">VPNs, password managers, and identity-theft protection software.</p>
+          <p class="why"><b>Why now:</b> the highest flat payout-per-conversion on this list, with a pitch you can deliver in one breath.</p>
+          <div class="commission"><span>Commission</span>$30–100+ flat or 30%+ recurring</div>
+        </div>
+        <div class="p-card">
+          <span class="p-step">STEP 10</span>
+          <h4 class="hl">Remote Work &amp; B2B SaaS Tools</h4>
+          <p class="what">Project management, invoicing, and workflow software built for remote teams.</p>
+          <p class="why"><b>Why now:</b> the ceiling of the ladder — higher-ticket B2B tools with the longest cookie windows on this radar.</p>
+          <div class="commission"><span>Commission</span>20–40% recurring, $100+ per account</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap reveal">
+    <span class="eyebrow">Your Next Move</span>
+    <h2 style="margin-top:14px;">Pick your lane. Post consistently.<br>Let the ladder do the compounding.</h2>
+    <p>Start on Tier 1 for your first commission this month, and layer in Tier 3 recurring commissions as your audience — and authority — grow.</p>
+    <div class="hero-cta">
+      <a href="#niches" class="btn btn-primary">Back to the Top 10</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Affiliate Radar 2026 — built for organic, US-market affiliate growth. No ad spend required.</p>
+    <p>Reference guide only · always confirm current commission terms directly with each program</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var niches = [
+    {rank:1, score:85, name:"AI Productivity & Writing Tools", copy:"Screen-record a tool that saves three hours a week and let curiosity do the sharing.", tags:["Faceless","AI-Ready"]},
+    {rank:2, score:84, name:"AI Video & Avatar Creation Tools", copy:"The video looks handmade. It isn't. That gap is the entire hook.", tags:["Faceless","AI-Ready"]},
+    {rank:3, score:81, name:"Personal Finance & Budgeting Apps", copy:"Money anxiety never goes out of style — neither does the content that fixes it.", tags:["High-Intent","Evergreen"]},
+    {rank:4, score:78, name:"Health Supplements", copy:"TikTok Shop's fastest-growing category, built entirely on \u201cwhat I take daily\u201d routines.", tags:["Beginner-Friendly","Recurring"]},
+    {rank:5, score:76, name:"Home Workout & Fitness Apps", copy:"Transformation content that never runs out of new angles to try.", tags:["Recurring"]},
+    {rank:6, score:76, name:"Mental Health & Journaling Apps", copy:"Deeply personal, deeply shareable — and install-driven commissions.", tags:["Faceless"]},
+    {rank:7, score:76, name:"Remote Work & Digital Nomad Tools", copy:"Aspirational lifestyle content selling tools people genuinely need.", tags:["AI-Ready","Recurring"]},
+    {rank:8, score:75, name:"Skincare & K-Beauty", copy:"TikTok Shop's single biggest GMV driver, powered by pure transformation.", tags:["Beginner-Friendly"]},
+    {rank:9, score:75, name:"VPN & Cybersecurity Tools", copy:"Explain it in thirty seconds, get paid like it took thirty hours.", tags:["Faceless","High-Payout"]},
+    {rank:10, score:74, name:"Online Courses & Education", copy:"\u201cI taught myself this\u201d is one of the internet's most-saved content formats.", tags:["Recurring"]}
+  ];
+
+  var grid = document.getElementById('niche-grid');
+  niches.forEach(function(n){
+    var card = document.createElement('div');
+    card.className = 'n-card reveal';
+    card.innerHTML =
+      '<div class="n-top">' +
+        '<span class="n-rank">RANK 0'+n.rank+'</span>' +
+        '<div class="score-ring" data-score="'+n.score+'" style="--pct:0"><span>0</span></div>' +
+      '</div>' +
+      '<h3 class="hl">'+n.name+'</h3>' +
+      '<p>'+n.copy+'</p>' +
+      '<div class="tags">'+n.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('')+'</div>';
+    grid.appendChild(card);
+  });
+
+  /* ---- reveal on scroll ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        if(e.target.classList.contains('n-card')) animateRing(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.18});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateRing(card){
+    var ring = card.querySelector('.score-ring');
+    var span = ring.querySelector('span');
+    var target = parseInt(ring.getAttribute('data-score'), 10);
+    if(reduceMotion){
+      ring.style.setProperty('--pct', target);
+      span.textContent = target;
+      return;
+    }
+    var start = null, duration = 900;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var val = Math.round(eased * target);
+      ring.style.setProperty('--pct', val);
+      span.textContent = val;
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---- custom rounded cursor ---- */
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if(fine && !reduceMotion){
+    document.body.classList.add('cursor-ready');
+    var dot = document.querySelector('.cursor-dot');
+    var ring = document.querySelector('.cursor-ring');
+    var mx=0,my=0,rx=0,ry=0;
+    window.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = 'translate('+mx+'px,'+my+'px) translate(-50%,-50%)';
+    });
+    (function loop(){
+      rx += (mx-rx)*0.16; ry += (my-ry)*0.16;
+      ring.style.transform = 'translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a, button, .btn, .n-card, .p-card, .hl').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ document.body.classList.add('cursor-hover'); });
+      el.addEventListener('mouseleave', function(){ document.body.classList.remove('cursor-hover'); });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
