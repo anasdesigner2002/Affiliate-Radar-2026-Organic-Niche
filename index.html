@@ -1,501 +1,3195 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Affiliate Radar 2026 — Organic Niche &amp; Product Playbook</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --white:#ffffff;
-    --ink:#0a1128;
-    --ink-soft:#4a5578;
-    --ink-faint:#7c87ac;
-    --blue-900:#0a2472;
-    --blue-700:#134fd6;
-    --blue-600:#2563eb;
-    --blue-500:#4c8dff;
-    --blue-200:#d3e3fd;
-    --blue-100:#eaf2ff;
-    --blue-050:#f5f9ff;
-    --radius-lg:22px;
-    --radius-md:14px;
-    --radius-sm:8px;
-    --maxw:1180px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:'Poppins', sans-serif;
-    color:var(--ink);
-    background:var(--white);
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  img,svg{display:block;max-width:100%;}
-  a{color:inherit;text-decoration:none;}
-  ul{margin:0;padding:0;list-style:none;}
-  h1,h2,h3,h4{margin:0;font-weight:700;letter-spacing:-0.01em;}
-  p{margin:0;}
-
-  :focus-visible{outline:2.5px solid var(--blue-700);outline-offset:3px;border-radius:4px;}
-
-  /* ---------- custom rounded cursor ---------- */
-  @media (hover:hover) and (pointer:fine){
-    body.cursor-ready, body.cursor-ready *{cursor:none;}
-    .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;will-change:transform;}
-    .cursor-dot{width:8px;height:8px;background:var(--blue-700);transition:opacity .2s ease;}
-    .cursor-ring{width:38px;height:38px;border:1.5px solid var(--blue-500);transition:width .25s cubic-bezier(.2,.8,.2,1),height .25s cubic-bezier(.2,.8,.2,1),background-color .25s ease,border-color .25s ease;}
-    body.cursor-hover .cursor-ring{width:68px;height:68px;background:rgba(19,79,214,.08);border-color:var(--blue-700);}
-    body.cursor-hover .cursor-dot{opacity:0;}
-  }
-
-  /* ---------- text highlight-on-hover ---------- */
-  .hl{
-    background-image:linear-gradient(120deg,var(--blue-100),var(--blue-100));
-    background-repeat:no-repeat;
-    background-size:0% 100%;
-    background-position:0 88%;
-    transition:background-size .32s ease;
-    border-radius:4px;
-    padding:0 .06em;
-  }
-  .hl:hover{background-size:100% 100%;}
-
-  /* ---------- reveal on scroll ---------- */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
-
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto;}
-    .reveal{opacity:1;transform:none;transition:none;}
-    .cursor-dot,.cursor-ring{display:none;}
-  }
-
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:.72rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--blue-700);
-    font-weight:600;
-  }
-
-  /* ---------- nav ---------- */
-  header{
-    position:sticky;top:0;z-index:500;
-    background:rgba(255,255,255,.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--blue-100);
-  }
-  nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:16px 28px;max-width:var(--maxw);margin:0 auto;
-  }
-  .logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.02rem;}
-  .logo-mark{width:26px;height:26px;border-radius:50%;background:conic-gradient(var(--blue-700),var(--blue-500),var(--blue-100));flex-shrink:0;}
-  .navlinks{display:flex;gap:30px;font-size:.92rem;font-weight:500;color:var(--ink-soft);}
-  .navlinks a:hover{color:var(--blue-700);}
-  @media (max-width:680px){.navlinks{display:none;}}
-
-  /* ---------- hero ---------- */
-  .hero{padding:76px 0 60px;background:linear-gradient(180deg,var(--blue-050) 0%, var(--white) 78%);}
-  .hero-top{max-width:760px;}
-  .hero h1{
-    font-size:clamp(2.1rem,4.6vw,3.4rem);
-    line-height:1.08;
-    margin-top:18px;
-    color:var(--blue-900);
-  }
-  .hero h1 span{color:var(--blue-700);}
-  .hero p.sub{
-    margin-top:20px;font-size:1.08rem;line-height:1.65;color:var(--ink-soft);max-width:620px;
-  }
-  .hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:13px 24px;border-radius:100px;font-weight:600;font-size:.94rem;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .btn-primary{background:var(--blue-700);color:var(--white);box-shadow:0 10px 24px -8px rgba(19,79,214,.55);}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 28px -8px rgba(19,79,214,.6);}
-  .btn-ghost{background:var(--white);color:var(--blue-900);border:1.5px solid var(--blue-200);}
-  .btn-ghost:hover{border-color:var(--blue-700);transform:translateY(-2px);}
-
-  /* ---------- niche grid ---------- */
-  .niche-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:56px 0 22px;flex-wrap:wrap;}
-  .niche-head h2{font-size:1.5rem;color:var(--blue-900);}
-  .niche-head .cnt{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--ink-faint);}
-
-  .niche-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(215px,1fr));
-    gap:16px;
-  }
-  .n-card{
-    background:var(--white);
-    border:1.5px solid var(--blue-100);
-    border-radius:var(--radius-md);
-    padding:20px;
-    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
-    display:flex;flex-direction:column;gap:12px;
-  }
-  .n-card:hover{border-color:var(--blue-500);transform:translateY(-4px);box-shadow:0 16px 30px -18px rgba(10,36,114,.3);}
-  .n-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
-  .n-rank{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink-faint);}
-  .score-ring{
-    width:52px;height:52px;border-radius:50%;
-    background:conic-gradient(var(--blue-700) calc(var(--pct,0)*1%), var(--blue-100) 0);
-    display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;
-  }
-  .score-ring::before{content:'';position:absolute;inset:5px;background:var(--white);border-radius:50%;}
-  .score-ring span{position:relative;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.72rem;color:var(--blue-900);}
-  .n-card h3{font-size:1rem;color:var(--ink);}
-  .n-card p{font-size:.87rem;line-height:1.55;color:var(--ink-soft);}
-  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;}
-  .tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.03em;text-transform:uppercase;background:var(--blue-100);color:var(--blue-700);padding:4px 8px;border-radius:20px;}
-
-  /* ---------- belief / stats ---------- */
-  .belief{padding:80px 0;background:var(--blue-900);color:var(--white);}
-  .belief .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;}
-  @media (max-width:820px){.belief .wrap{grid-template-columns:1fr;}}
-  .belief h2{font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.25;color:var(--white);}
-  .belief p.body{margin-top:16px;color:#c3d3fb;line-height:1.7;font-size:1rem;max-width:480px;}
-  .stat-list{display:flex;flex-direction:column;gap:22px;}
-  .stat{border-left:2px solid var(--blue-500);padding-left:18px;}
-  .stat .num{font-family:'JetBrains Mono',monospace;font-size:1.9rem;font-weight:600;color:var(--white);}
-  .stat .label{font-size:.87rem;color:#a9bdf2;margin-top:4px;line-height:1.5;}
-
-  /* ---------- product ladder ---------- */
-  .ladder{padding:80px 0 40px;}
-  .ladder-head{max-width:640px;margin-bottom:46px;}
-  .ladder-head h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--blue-900);margin-top:14px;}
-  .ladder-head p{margin-top:14px;color:var(--ink-soft);line-height:1.6;font-size:1.02rem;}
-
-  .tier{margin-bottom:52px;}
-  .tier-label{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
-  .tier-badge{
-    font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.08em;
-    color:var(--white);background:var(--blue-700);padding:6px 14px;border-radius:20px;text-transform:uppercase;
-  }
-  .tier-title{font-size:1.1rem;color:var(--blue-900);font-weight:600;}
-  .tier-sub{font-size:.85rem;color:var(--ink-faint);margin-left:auto;}
-  @media (max-width:640px){.tier-sub{display:none;}}
-
-  .p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
-  .p-card{
-    border:1.5px solid var(--blue-100);border-radius:var(--radius-md);padding:24px;
-    display:flex;flex-direction:column;gap:10px;
-    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
-  }
-  .p-card:hover{border-color:var(--blue-500);transform:translateY(-4px);box-shadow:0 16px 30px -18px rgba(10,36,114,.25);}
-  .p-step{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--blue-700);font-weight:600;}
-  .p-card h4{font-size:1.05rem;color:var(--ink);}
-  .p-card .what{font-size:.85rem;color:var(--ink-soft);line-height:1.55;}
-  .p-card .why{font-size:.85rem;color:var(--ink-soft);line-height:1.55;padding-top:6px;border-top:1px dashed var(--blue-200);margin-top:2px;}
-  .p-card .why b{color:var(--blue-900);}
-  .commission{
-    margin-top:auto;padding-top:10px;
-    font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--blue-900);font-weight:600;
-  }
-  .commission span{color:var(--ink-faint);font-weight:400;text-transform:uppercase;font-size:.68rem;letter-spacing:.05em;display:block;margin-bottom:3px;}
-
-  /* ---------- cta footer ---------- */
-  .cta-section{padding:90px 0;text-align:center;background:linear-gradient(180deg,var(--white),var(--blue-050));}
-  .cta-section h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:var(--blue-900);max-width:640px;margin:0 auto;line-height:1.25;}
-  .cta-section p{margin:18px auto 0;color:var(--ink-soft);max-width:480px;line-height:1.6;}
-  .cta-section .hero-cta{justify-content:center;margin-top:28px;}
-
-  footer{padding:34px 0;border-top:1px solid var(--blue-100);}
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-  footer p{font-size:.82rem;color:var(--ink-faint);}
-
-  @media (max-width:540px){
-    .wrap{padding:0 20px;}
-    .hero{padding:52px 0 40px;}
-    .niche-head{margin-top:44px;}
-  }
-</style>
-</head>
-<body>
-
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-<header>
-  <nav>
-    <div class="logo"><span class="logo-mark"></span><span>Affiliate&nbsp;Radar<span style="color:var(--blue-700)">&nbsp;2026</span></span></div>
-    <div class="navlinks">
-      <a href="#niches" class="hl">Top Niches</a>
-      <a href="#ladder" class="hl">Product Ladder</a>
-      <a href="#why" class="hl">Why Organic</a>
-    </div>
-    <a href="#ladder" class="btn btn-ghost" style="padding:9px 18px;font-size:.85rem;">Start Building</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-top">
-      <span class="eyebrow">Organic Affiliate Strategy · US Market · 2026</span>
-      <h1>10 niches worth <span class="hl">building</span> on.<br>Zero <span>ad spend</span> required.</h1>
-      <p class="sub">Every niche below was scored against buyer intent, virality, AI-content leverage, and five-year staying power — then ranked into a single radar you can act on today.</p>
-      <div class="hero-cta">
-        <a href="#niches" class="btn btn-primary">See the Top 10 →</a>
-        <a href="#ladder" class="btn btn-ghost">View the Product Ladder</a>
-      </div>
-    </div>
-
-    <div class="niche-head reveal" id="niches">
-      <h2>The Top 10 Opportunity Score</h2>
-      <span class="cnt">RANKED / 100</span>
-    </div>
-
-    <div class="niche-grid" id="niche-grid"></div>
-  </div>
-</section>
-
-<section class="belief" id="why">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow" style="color:var(--blue-500);">Why Organic, Why Now</span>
-      <h2 style="margin-top:14px;">Ads got expensive.<br>Trust didn't.</h2>
-      <p class="body">AI leveled the production playing field — anyone can make a clean video now. What it can't fake is a real result, a real routine, a real &ldquo;this actually worked for me.&rdquo; That gap is exactly what organic affiliates are built to fill, and it's why platforms keep rewarding authentic, repeatable content over polished ads.</p>
-    </div>
-    <div class="stat-list reveal">
-      <div class="stat"><div class="num">22%+</div><div class="label">of TikTok Shop's US GMV comes from beauty &amp; personal care alone</div></div>
-      <div class="stat"><div class="num">+55%</div><div class="label">year-over-year growth in wellness content — the platform's fastest-growing category</div></div>
-      <div class="stat"><div class="num">20–50%</div><div class="label">typical recurring commission on AI &amp; SaaS tools, often for the life of the subscription</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="ladder" id="ladder">
-  <div class="wrap">
-    <div class="ladder-head reveal">
-      <span class="eyebrow">The Product Ladder</span>
-      <h2>Ten products, three tiers, one <span class="hl">clear path</span> from first post to real income.</h2>
-      <p>Start where the trust barrier is lowest. Climb toward recurring, higher-ticket commissions as your audience — and your credibility — grows.</p>
-    </div>
-
-    <!-- TIER 1 -->
-    <div class="tier reveal">
-      <div class="tier-label">
-        <span class="tier-badge">Tier 1 · Start Here</span>
-        <span class="tier-title">Beginner</span>
-        <span class="tier-sub">Low trust barrier · fast first commission</span>
-      </div>
-      <div class="p-grid">
-        <div class="p-card">
-          <span class="p-step">STEP 01</span>
-          <h4 class="hl">Skincare &amp; K-Beauty Finds</h4>
-          <p class="what">Serums, routines, and skincare devices via TikTok Shop Affiliate or Amazon Associates.</p>
-          <p class="why"><b>Why start here:</b> zero authority required — a close-up demo and a real result does the selling for you.</p>
-          <div class="commission"><span>Commission</span>5–20% per sale</div>
-        </div>
-        <div class="p-card">
-          <span class="p-step">STEP 02</span>
-          <h4 class="hl">Fragrance &amp; Perfume Dupes</h4>
-          <p class="what">Designer dupes and niche fragrance promotion through TikTok Shop's affiliate marketplace.</p>
-          <p class="why"><b>Why start here:</b> you can't show scent, so it forces you to master storytelling hooks — the most transferable skill in this business.</p>
-          <div class="commission"><span>Commission</span>8–15% per sale</div>
-        </div>
-        <div class="p-card">
-          <span class="p-step">STEP 03</span>
-          <h4 class="hl">Daily Supplement Stacks</h4>
-          <p class="what">Collagen, magnesium, and gut-health subscriptions through networks like ShareASale or Impact.</p>
-          <p class="why"><b>Why start here:</b> subscription rebills mean one video keeps paying out for months after you post it.</p>
-          <div class="commission"><span>Commission</span>15–30%, often recurring</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TIER 2 -->
-    <div class="tier reveal">
-      <div class="tier-label">
-        <span class="tier-badge">Tier 2 · Growth</span>
-        <span class="tier-title">Intermediate</span>
-        <span class="tier-sub">Needs a little audience trust</span>
-      </div>
-      <div class="p-grid">
-        <div class="p-card">
-          <span class="p-step">STEP 04</span>
-          <h4 class="hl">Home Workout &amp; Fitness Apps</h4>
-          <p class="what">App subscriptions promoted through progress updates and program breakdowns.</p>
-          <p class="why"><b>Why now:</b> takes more consistency to build, but recurring commission starts to compound fast.</p>
-          <div class="commission"><span>Commission</span>20–40% recurring</div>
-        </div>
-        <div class="p-card">
-          <span class="p-step">STEP 05</span>
-          <h4 class="hl">Personal Finance &amp; Budgeting Apps</h4>
-          <p class="what">Budgeting, cashback, and credit-building tools people search for by name.</p>
-          <p class="why"><b>Why now:</b> needs a credible narrative — the audience trust you've built makes this convert.</p>
-          <div class="commission"><span>Commission</span>$20–150 flat or 20–40% recurring</div>
-        </div>
-        <div class="p-card">
-          <span class="p-step">STEP 06</span>
-          <h4 class="hl">Online Courses &amp; Certifications</h4>
-          <p class="what">Skill-based courses in design, coding, trading, or language learning.</p>
-          <p class="why"><b>Why now:</b> your &ldquo;I taught myself this&rdquo; story is believable now — and payouts per sale rank among the highest here.</p>
-          <div class="commission"><span>Commission</span>20–50% per sale</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TIER 3 -->
-    <div class="tier reveal">
-      <div class="tier-label">
-        <span class="tier-badge">Tier 3 · Scale</span>
-        <span class="tier-title">Advanced</span>
-        <span class="tier-sub">Highest ticket · longest payout life</span>
-      </div>
-      <div class="p-grid">
-        <div class="p-card">
-          <span class="p-step">STEP 07</span>
-          <h4 class="hl">AI Productivity &amp; Writing Tools</h4>
-          <p class="what">AI workspaces, writing assistants, and SEO copilots — the tools everyone is anxious to master.</p>
-          <p class="why"><b>Why now:</b> the highest-leverage niche on the whole radar — commission on tools people renew for years.</p>
-          <div class="commission"><span>Commission</span>20–50% recurring, some lifetime</div>
-        </div>
-        <div class="p-card">
-          <span class="p-step">STEP 08</span>
-          <h4 class="hl">AI Video &amp; Avatar Creation Tools</h4>
-          <p class="what">Faceless video generators, talking-avatar tools, and voice cloning software.</p>
-          <p class="why"><b>Why now:</b> you use the product to make the content about the product — a closed loop few other niches offer.</p>
-          <div class="commission"><span>Commission</span>20–30% recurring</div>
-        </div>
-        <div class="p-card">
-          <span class="p-step">STEP 09</span>
-          <h4 class="hl">VPN &amp; Cybersecurity Tools</h4>
-          <p class="what">VPNs, password managers, and identity-theft protection software.</p>
-          <p class="why"><b>Why now:</b> the highest flat payout-per-conversion on this list, with a pitch you can deliver in one breath.</p>
-          <div class="commission"><span>Commission</span>$30–100+ flat or 30%+ recurring</div>
-        </div>
-        <div class="p-card">
-          <span class="p-step">STEP 10</span>
-          <h4 class="hl">Remote Work &amp; B2B SaaS Tools</h4>
-          <p class="what">Project management, invoicing, and workflow software built for remote teams.</p>
-          <p class="why"><b>Why now:</b> the ceiling of the ladder — higher-ticket B2B tools with the longest cookie windows on this radar.</p>
-          <div class="commission"><span>Commission</span>20–40% recurring, $100+ per account</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-section">
-  <div class="wrap reveal">
-    <span class="eyebrow">Your Next Move</span>
-    <h2 style="margin-top:14px;">Pick your lane. Post consistently.<br>Let the ladder do the compounding.</h2>
-    <p>Start on Tier 1 for your first commission this month, and layer in Tier 3 recurring commissions as your audience — and authority — grow.</p>
-    <div class="hero-cta">
-      <a href="#niches" class="btn btn-primary">Back to the Top 10</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p>Affiliate Radar 2026 — built for organic, US-market affiliate growth. No ad spend required.</p>
-    <p>Reference guide only · always confirm current commission terms directly with each program</p>
-  </div>
-</footer>
-
-<script>
-(function(){
-  var niches = [
-    {rank:1, score:85, name:"AI Productivity & Writing Tools", copy:"Screen-record a tool that saves three hours a week and let curiosity do the sharing.", tags:["Faceless","AI-Ready"]},
-    {rank:2, score:84, name:"AI Video & Avatar Creation Tools", copy:"The video looks handmade. It isn't. That gap is the entire hook.", tags:["Faceless","AI-Ready"]},
-    {rank:3, score:81, name:"Personal Finance & Budgeting Apps", copy:"Money anxiety never goes out of style — neither does the content that fixes it.", tags:["High-Intent","Evergreen"]},
-    {rank:4, score:78, name:"Health Supplements", copy:"TikTok Shop's fastest-growing category, built entirely on \u201cwhat I take daily\u201d routines.", tags:["Beginner-Friendly","Recurring"]},
-    {rank:5, score:76, name:"Home Workout & Fitness Apps", copy:"Transformation content that never runs out of new angles to try.", tags:["Recurring"]},
-    {rank:6, score:76, name:"Mental Health & Journaling Apps", copy:"Deeply personal, deeply shareable — and install-driven commissions.", tags:["Faceless"]},
-    {rank:7, score:76, name:"Remote Work & Digital Nomad Tools", copy:"Aspirational lifestyle content selling tools people genuinely need.", tags:["AI-Ready","Recurring"]},
-    {rank:8, score:75, name:"Skincare & K-Beauty", copy:"TikTok Shop's single biggest GMV driver, powered by pure transformation.", tags:["Beginner-Friendly"]},
-    {rank:9, score:75, name:"VPN & Cybersecurity Tools", copy:"Explain it in thirty seconds, get paid like it took thirty hours.", tags:["Faceless","High-Payout"]},
-    {rank:10, score:74, name:"Online Courses & Education", copy:"\u201cI taught myself this\u201d is one of the internet's most-saved content formats.", tags:["Recurring"]}
-  ];
-
-  var grid = document.getElementById('niche-grid');
-  niches.forEach(function(n){
-    var card = document.createElement('div');
-    card.className = 'n-card reveal';
-    card.innerHTML =
-      '<div class="n-top">' +
-        '<span class="n-rank">RANK 0'+n.rank+'</span>' +
-        '<div class="score-ring" data-score="'+n.score+'" style="--pct:0"><span>0</span></div>' +
-      '</div>' +
-      '<h3 class="hl">'+n.name+'</h3>' +
-      '<p>'+n.copy+'</p>' +
-      '<div class="tags">'+n.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('')+'</div>';
-    grid.appendChild(card);
-  });
-
-  /* ---- reveal on scroll ---- */
-  var revealEls = document.querySelectorAll('.reveal');
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.classList.add('in');
-        if(e.target.classList.contains('n-card')) animateRing(e.target);
-        io.unobserve(e.target);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Affiliate Radar 2026 — Organic Niche &amp; Product Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --white: #ffffff;
+        --ink: #0a1128;
+        --ink-soft: #4a5578;
+        --ink-faint: #7c87ac;
+        --blue-900: #0a2472;
+        --blue-700: #134fd6;
+        --blue-600: #2563eb;
+        --blue-500: #4c8dff;
+        --blue-200: #d3e3fd;
+        --blue-100: #eaf2ff;
+        --blue-050: #f5f9ff;
+        --surface: #ffffff;
+        --surface-soft: #f5f9ff;
+        --line: #eaf2ff;
+        --shadow: rgba(10, 36, 114, 0.25);
+        --radius-lg: 22px;
+        --radius-md: 14px;
+        --radius-sm: 8px;
+        --maxw: 1180px;
       }
-    });
-  }, {threshold:.18});
-  revealEls.forEach(function(el){ io.observe(el); });
 
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      [data-theme="dark"] {
+        --white: #111827;
+        --ink: #f4f7ff;
+        --ink-soft: #b8c2d9;
+        --ink-faint: #8794b4;
+        --blue-900: #dce8ff;
+        --blue-700: #76a7ff;
+        --blue-600: #5d91f5;
+        --blue-500: #91b9ff;
+        --blue-200: #30466f;
+        --blue-100: #1d2b47;
+        --blue-050: #162238;
+        --surface: #111827;
+        --surface-soft: #162238;
+        --line: #263858;
+        --shadow: rgba(0, 0, 0, 0.35);
+      }
 
-  function animateRing(card){
-    var ring = card.querySelector('.score-ring');
-    var span = ring.querySelector('span');
-    var target = parseInt(ring.getAttribute('data-score'), 10);
-    if(reduceMotion){
-      ring.style.setProperty('--pct', target);
-      span.textContent = target;
-      return;
-    }
-    var start = null, duration = 900;
-    function step(ts){
-      if(!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var val = Math.round(eased * target);
-      ring.style.setProperty('--pct', val);
-      span.textContent = val;
-      if(progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        color: var(--ink);
+        background: var(--surface);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      p {
+        margin: 0;
+      }
 
-  /* ---- custom rounded cursor ---- */
-  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if(fine && !reduceMotion){
-    document.body.classList.add('cursor-ready');
-    var dot = document.querySelector('.cursor-dot');
-    var ring = document.querySelector('.cursor-ring');
-    var mx=0,my=0,rx=0,ry=0;
-    window.addEventListener('mousemove', function(e){
-      mx = e.clientX; my = e.clientY;
-      dot.style.transform = 'translate('+mx+'px,'+my+'px) translate(-50%,-50%)';
-    });
-    (function loop(){
-      rx += (mx-rx)*0.16; ry += (my-ry)*0.16;
-      ring.style.transform = 'translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
-      requestAnimationFrame(loop);
-    })();
-    document.querySelectorAll('a, button, .btn, .n-card, .p-card, .hl').forEach(function(el){
-      el.addEventListener('mouseenter', function(){ document.body.classList.add('cursor-hover'); });
-      el.addEventListener('mouseleave', function(){ document.body.classList.remove('cursor-hover'); });
-    });
-  }
-})();
-</script>
+      :focus-visible {
+        outline: 2.5px solid var(--blue-700);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
 
-</body>
+      /* ---------- custom rounded cursor ---------- */
+      @media (hover: hover) and (pointer: fine) {
+        body.cursor-ready,
+        body.cursor-ready * {
+          cursor: none;
+        }
+        .cursor-dot,
+        .cursor-ring {
+          position: fixed;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 9999;
+          border-radius: 50%;
+          will-change: transform;
+        }
+        .cursor-dot {
+          width: 8px;
+          height: 8px;
+          background: var(--blue-700);
+          transition: opacity 0.2s ease;
+        }
+        .cursor-ring {
+          width: 38px;
+          height: 38px;
+          border: 1.5px solid var(--blue-500);
+          transition:
+            width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+            height 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+            background-color 0.25s ease,
+            border-color 0.25s ease;
+        }
+        body.cursor-hover .cursor-ring {
+          width: 68px;
+          height: 68px;
+          background: rgba(19, 79, 214, 0.08);
+          border-color: var(--blue-700);
+        }
+        body.cursor-hover .cursor-dot {
+          opacity: 0;
+        }
+      }
+
+      /* ---------- text highlight-on-hover ---------- */
+      .hl {
+        background-image: linear-gradient(
+          120deg,
+          var(--blue-100),
+          var(--blue-100)
+        );
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position: 0 88%;
+        transition: background-size 0.32s ease;
+        border-radius: 4px;
+        padding: 0 0.06em;
+      }
+      .hl:hover {
+        background-size: 100% 100%;
+      }
+
+      /* ---------- reveal on scroll ---------- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        .cursor-dot,
+        .cursor-ring {
+          display: none;
+        }
+      }
+
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--blue-700);
+        font-weight: 600;
+      }
+
+      /* ---------- nav ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 500;
+        background: color-mix(in srgb, var(--surface) 84%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--blue-100);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 28px;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        position: relative;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-weight: 700;
+        font-size: 1.02rem;
+      }
+      .logo-mark {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: conic-gradient(
+          var(--blue-700),
+          var(--blue-500),
+          var(--blue-100)
+        );
+        flex-shrink: 0;
+      }
+      .navlinks {
+        display: flex;
+        gap: 30px;
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: var(--ink-soft);
+      }
+      .navlinks a {
+        line-height: 1.2;
+        padding: 4px 0;
+      }
+      .navlinks a:hover {
+        color: var(--blue-700);
+      }
+      .theme-toggle {
+        border: 1.5px solid var(--blue-200);
+        background: var(--surface);
+        color: var(--ink);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .theme-toggle:hover {
+        transform: translateY(-2px);
+        border-color: var(--blue-700);
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 40px;
+      }
+      .nav-actions > .btn-ghost {
+        height: 40px;
+      }
+      .menu-toggle {
+        display: none !important;
+        border: 1.5px solid var(--blue-200);
+        background: var(--surface);
+        color: var(--ink);
+        border-radius: 7px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      .account-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .account-btn {
+        border: 0;
+        background: none;
+        color: var(--blue-700);
+        font:
+          600 0.82rem/1 "Poppins",
+          sans-serif;
+        cursor: pointer;
+        padding: 8px 7px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .account-btn.signup {
+        background: var(--blue-700);
+        color: var(--white);
+        border-radius: 7px;
+        padding: 9px 13px;
+        height: 34px;
+      }
+      .account-btn:hover {
+        opacity: 0.78;
+      }
+      @media (max-width: 900px) {
+        nav {
+          padding: 13px 24px;
+        }
+        .menu-toggle {
+          display: block !important;
+          order: 1;
+        }
+        .navlinks {
+          display: none;
+          position: absolute;
+          top: calc(100% + 1px);
+          left: 20px;
+          right: 20px;
+          padding: 12px;
+          background: var(--surface);
+          border: 1px solid var(--line);
+          border-radius: 0 0 10px 10px;
+          box-shadow: 0 14px 30px -18px var(--shadow);
+          z-index: 2;
+        }
+        .navlinks.open {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+        }
+        .navlinks a {
+          padding: 11px 12px;
+          border-bottom: 1px solid var(--line);
+        }
+        .navlinks a:last-child {
+          border-bottom: 0;
+        }
+        .nav-actions {
+          margin-left: auto;
+        }
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        padding: 76px 0 60px;
+        background: linear-gradient(
+          180deg,
+          var(--blue-050) 0%,
+          var(--white) 78%
+        );
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 310px;
+        gap: 42px;
+        align-items: center;
+      }
+      .hero-top {
+        max-width: 760px;
+      }
+      .hero h1 {
+        font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+        line-height: 1.08;
+        margin-top: 18px;
+        color: var(--blue-900);
+      }
+      .hero h1 span {
+        color: var(--blue-700);
+      }
+      .hero p.sub {
+        margin-top: 20px;
+        font-size: 1.08rem;
+        line-height: 1.65;
+        color: var(--ink-soft);
+        max-width: 620px;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 14px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 24px;
+        border-radius: 100px;
+        font-weight: 600;
+        font-size: 0.94rem;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .btn-primary {
+        background: var(--blue-700);
+        color: var(--white);
+        box-shadow: 0 10px 24px -8px rgba(19, 79, 214, 0.55);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px -8px rgba(19, 79, 214, 0.6);
+      }
+      .btn-ghost {
+        background: var(--surface);
+        color: var(--blue-900);
+        border: 1.5px solid var(--blue-200);
+      }
+      .btn-ghost:hover {
+        border-color: var(--blue-700);
+        transform: translateY(-2px);
+      }
+      .hero-art {
+        min-height: 310px;
+        display: grid;
+        place-items: center;
+        position: relative;
+        isolation: isolate;
+      }
+      .hero-art::before {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border: 1px solid var(--blue-200);
+        border-radius: 50%;
+        opacity: 0.55;
+        animation: orbit 14s linear infinite;
+      }
+      .hero-art::after {
+        content: "";
+        position: absolute;
+        width: 270px;
+        height: 270px;
+        border: 1px dashed var(--blue-200);
+        border-radius: 50%;
+        opacity: 0.35;
+        animation: orbit 20s linear infinite reverse;
+      }
+      .radar-core {
+        width: 116px;
+        height: 116px;
+        border-radius: 50%;
+        border: 1px solid var(--blue-500);
+        background: radial-gradient(
+          circle,
+          var(--blue-100) 0 5%,
+          transparent 6% 100%
+        );
+        position: relative;
+        box-shadow: 0 0 45px rgba(76, 141, 255, 0.16);
+      }
+      .radar-core::before {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px solid var(--blue-500);
+        border-radius: 50%;
+        opacity: 0.6;
+      }
+      .radar-core::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 53px;
+        height: 1px;
+        background: linear-gradient(90deg, var(--blue-700), transparent);
+        transform-origin: left center;
+        animation: sweep 3.2s ease-in-out infinite;
+      }
+      .signal-dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--blue-700);
+        box-shadow: 0 0 0 5px var(--blue-100);
+        animation: pulse 2.2s ease-in-out infinite;
+      }
+      .dot-one {
+        top: 22%;
+        right: 14%;
+        animation-delay: 0.2s;
+      }
+      .dot-two {
+        bottom: 20%;
+        left: 12%;
+        animation-delay: 1s;
+      }
+      .dot-three {
+        top: 16%;
+        left: 19%;
+        animation-delay: 1.5s;
+      }
+      @keyframes sweep {
+        0%,
+        100% {
+          transform: rotate(-25deg);
+        }
+        50% {
+          transform: rotate(320deg);
+        }
+      }
+      @keyframes orbit {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(0.8);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.35);
+          opacity: 1;
+        }
+      }
+
+      /* ---------- niche grid ---------- */
+      .niche-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin: 56px 0 22px;
+        flex-wrap: wrap;
+      }
+      .niche-head h2 {
+        font-size: 1.5rem;
+        color: var(--blue-900);
+      }
+      .niche-head .cnt {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--ink-faint);
+      }
+
+      .niche-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+        gap: 16px;
+      }
+      .n-card {
+        background: var(--white);
+        border: 1.5px solid var(--blue-100);
+        border-radius: var(--radius-md);
+        padding: 20px;
+        transition:
+          border-color 0.25s ease,
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        cursor: pointer;
+      }
+      .n-card:hover {
+        border-color: var(--blue-500);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 30px -18px rgba(10, 36, 114, 0.3);
+      }
+      .n-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .n-rank {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--ink-faint);
+      }
+      .score-ring {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: conic-gradient(
+          var(--blue-700) calc(var(--pct, 0) * 1%),
+          var(--blue-100) 0
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .score-ring::before {
+        content: "";
+        position: absolute;
+        inset: 5px;
+        background: var(--white);
+        border-radius: 50%;
+      }
+      .score-ring span {
+        position: relative;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 600;
+        font-size: 0.72rem;
+        color: var(--blue-900);
+      }
+      .n-card h3 {
+        font-size: 1rem;
+        color: var(--ink);
+      }
+      .n-card p {
+        font-size: 0.87rem;
+        line-height: 1.55;
+        color: var(--ink-soft);
+      }
+      .tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: auto;
+      }
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        background: var(--blue-100);
+        color: var(--blue-700);
+        padding: 4px 8px;
+        border-radius: 20px;
+      }
+
+      /* ---------- belief / stats ---------- */
+      .belief {
+        padding: 80px 0;
+        background: var(--blue-900);
+        color: var(--white);
+      }
+      .belief .wrap {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      @media (max-width: 820px) {
+        .belief .wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+      .belief h2 {
+        font-size: clamp(1.6rem, 3vw, 2.1rem);
+        line-height: 1.25;
+        color: var(--white);
+      }
+      .belief p.body {
+        margin-top: 16px;
+        color: #c3d3fb;
+        line-height: 1.7;
+        font-size: 1rem;
+        max-width: 480px;
+      }
+      .stat-list {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .stat {
+        border-left: 2px solid var(--blue-500);
+        padding-left: 18px;
+      }
+      .stat .num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 1.9rem;
+        font-weight: 600;
+        color: var(--white);
+      }
+      .stat .label {
+        font-size: 0.87rem;
+        color: #a9bdf2;
+        margin-top: 4px;
+        line-height: 1.5;
+      }
+
+      /* ---------- product ladder ---------- */
+      .ladder {
+        padding: 80px 0 40px;
+      }
+      .ladder-head {
+        max-width: 640px;
+        margin-bottom: 46px;
+      }
+      .ladder-head h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        color: var(--blue-900);
+        margin-top: 14px;
+      }
+      .ladder-head p {
+        margin-top: 14px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+        font-size: 1.02rem;
+      }
+
+      .tier {
+        margin-bottom: 52px;
+      }
+      .tier-label {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+      .tier-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        color: var(--white);
+        background: var(--blue-700);
+        padding: 6px 14px;
+        border-radius: 20px;
+        text-transform: uppercase;
+      }
+      .tier-title {
+        font-size: 1.1rem;
+        color: var(--blue-900);
+        font-weight: 600;
+      }
+      .tier-sub {
+        font-size: 0.85rem;
+        color: var(--ink-faint);
+        margin-left: auto;
+      }
+      @media (max-width: 640px) {
+        .tier-sub {
+          display: none;
+        }
+      }
+
+      .p-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+        gap: 18px;
+      }
+      .p-card {
+        border: 1.5px solid var(--blue-100);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition:
+          border-color 0.25s ease,
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .p-card:hover {
+        border-color: var(--blue-500);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 30px -18px rgba(10, 36, 114, 0.25);
+      }
+      .p-step {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--blue-700);
+        font-weight: 600;
+      }
+      .p-card h4 {
+        font-size: 1.05rem;
+        color: var(--ink);
+      }
+      .p-card .what {
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        line-height: 1.55;
+      }
+      .p-card .why {
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+        line-height: 1.55;
+        padding-top: 6px;
+        border-top: 1px dashed var(--blue-200);
+        margin-top: 2px;
+      }
+      .p-card .why b {
+        color: var(--blue-900);
+      }
+      .marketplaces {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 4px;
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+      }
+      .marketplaces-label {
+        width: 100%;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.63rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .market-link {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--blue-900);
+        border: 1px solid var(--blue-200);
+        border-radius: 6px;
+        padding: 5px 7px;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .market-link:hover {
+        background: var(--blue-700);
+        color: var(--surface);
+        transform: translateY(-1px);
+      }
+      .commission {
+        margin-top: auto;
+        padding-top: 10px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--blue-900);
+        font-weight: 600;
+      }
+      .commission span {
+        color: var(--ink-faint);
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 0.68rem;
+        letter-spacing: 0.05em;
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      .claude-section {
+        padding: 76px 0;
+        background: var(--surface-soft);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .claude-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 54px;
+        align-items: start;
+      }
+      .claude-section h2 {
+        font-size: clamp(1.65rem, 3vw, 2.3rem);
+        color: var(--blue-900);
+        margin-top: 14px;
+        line-height: 1.18;
+      }
+      .claude-section .intro-copy {
+        color: var(--ink-soft);
+        line-height: 1.7;
+        margin-top: 15px;
+      }
+      .claude-steps {
+        display: grid;
+        gap: 14px;
+      }
+      .claude-step {
+        display: grid;
+        grid-template-columns: 35px 1fr;
+        gap: 13px;
+        align-items: start;
+        padding: 16px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: 10px;
+      }
+      .claude-step strong {
+        display: block;
+        color: var(--blue-900);
+        font-size: 0.92rem;
+        margin-bottom: 3px;
+      }
+      .claude-step p {
+        font-size: 0.84rem;
+        color: var(--ink-soft);
+        line-height: 1.55;
+      }
+      .step-number {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--blue-700);
+        font-weight: 600;
+        font-size: 0.8rem;
+        padding-top: 2px;
+      }
+
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(5, 12, 30, 0.62);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .modal-backdrop.open {
+        display: flex;
+      }
+      .modal {
+        width: min(100%, 520px);
+        max-height: min(720px, 90vh);
+        overflow: auto;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 30px;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+        position: relative;
+        animation: modal-in 0.22s ease-out;
+      }
+      @keyframes modal-in {
+        from {
+          opacity: 0;
+          transform: translateY(12px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .modal-close {
+        position: absolute;
+        right: 15px;
+        top: 13px;
+        border: 0;
+        background: transparent;
+        color: var(--ink-soft);
+        font-size: 1.35rem;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .modal h2 {
+        color: var(--blue-900);
+        font-size: 1.5rem;
+        margin: 10px 32px 9px 0;
+        line-height: 1.2;
+      }
+      .modal p {
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+      .modal .eyebrow {
+        display: block;
+      }
+      .auth-form {
+        display: grid;
+        gap: 14px;
+        margin-top: 20px;
+      }
+      .auth-form label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--ink);
+        display: grid;
+        gap: 6px;
+      }
+      .auth-form input,
+      .auth-form select {
+        font: inherit;
+        color: var(--ink);
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        padding: 11px 12px;
+      }
+      .auth-submit {
+        border: 0;
+        background: var(--blue-700);
+        color: var(--white);
+        font:
+          600 0.88rem "Poppins",
+          sans-serif;
+        padding: 12px;
+        border-radius: 7px;
+        cursor: pointer;
+      }
+      .auth-switch {
+        text-align: center;
+        font-size: 0.78rem !important;
+        margin-top: 3px;
+      }
+      .text-button {
+        border: 0;
+        background: none;
+        color: var(--blue-700);
+        font:
+          600 0.78rem "Poppins",
+          sans-serif;
+        cursor: pointer;
+        padding: 0;
+      }
+      .detail-list {
+        margin: 18px 0 0;
+        padding-left: 18px;
+        color: var(--ink-soft);
+        font-size: 0.88rem;
+        line-height: 1.8;
+      }
+      .exchange-section {
+        padding: 78px 0;
+        background: var(--surface);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .exchange-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .exchange-head h2 {
+        font-size: clamp(1.7rem, 3vw, 2.35rem);
+        line-height: 1.15;
+        color: var(--blue-900);
+        margin-top: 14px;
+      }
+      .exchange-head p {
+        max-width: 510px;
+        color: var(--ink-soft);
+        line-height: 1.65;
+        margin-top: 12px;
+        font-size: 0.92rem;
+      }
+      .exchange-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .exchange-stat {
+        padding: 16px;
+        border: 1px solid var(--line);
+        background: var(--white);
+        border-radius: 9px;
+      }
+      .exchange-stat strong {
+        display: block;
+        font:
+          600 1.35rem "JetBrains Mono",
+          monospace;
+        color: var(--blue-700);
+      }
+      .exchange-stat span {
+        display: block;
+        color: var(--ink-faint);
+        font-size: 0.75rem;
+        margin-top: 4px;
+      }
+      .index-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+      }
+      .index-item {
+        border: 1px solid var(--line);
+        background: var(--white);
+        border-radius: 8px;
+        padding: 13px;
+        min-width: 0;
+      }
+      .index-rank {
+        font:
+          600 0.65rem "JetBrains Mono",
+          monospace;
+        color: var(--ink-faint);
+      }
+      .index-item h3 {
+        font-size: 0.78rem;
+        line-height: 1.35;
+        color: var(--ink);
+        margin: 7px 0 9px;
+      }
+      .index-score {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font:
+          600 0.78rem "JetBrains Mono",
+          monospace;
+        color: var(--blue-700);
+      }
+      .index-signal {
+        font-size: 0.62rem;
+        color: var(--ink-faint);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .notes-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 34px;
+      }
+      .analyst-note {
+        border-left: 2px solid var(--blue-500);
+        padding: 14px 16px;
+        background: var(--surface-soft);
+      }
+      .analyst-note b {
+        display: block;
+        font-size: 0.78rem;
+        color: var(--blue-900);
+        line-height: 1.4;
+        margin-bottom: 6px;
+      }
+      .analyst-note p {
+        font-size: 0.76rem;
+        line-height: 1.55;
+        color: var(--ink-soft);
+      }
+      .exchange-disclaimer {
+        margin-top: 26px;
+        color: var(--ink-faint);
+        font-size: 0.72rem;
+        line-height: 1.5;
+      }
+      .earning-section {
+        padding: 62px 0;
+        background: linear-gradient(
+          135deg,
+          var(--surface-soft),
+          var(--surface)
+        );
+        border-bottom: 1px solid var(--line);
+      }
+      .earning-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 30px;
+        align-items: center;
+      }
+      .earning-section h2 {
+        font-size: clamp(1.65rem, 3vw, 2.4rem);
+        line-height: 1.15;
+        color: var(--blue-900);
+        margin: 12px 0 14px;
+      }
+      .earning-copy {
+        color: var(--ink-soft);
+        line-height: 1.7;
+        max-width: 650px;
+      }
+      .earning-note {
+        margin-top: 14px;
+        color: var(--ink-faint);
+        font-size: 0.78rem;
+        line-height: 1.5;
+      }
+      .earning-panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 22px;
+      }
+      .earning-panel label {
+        display: grid;
+        gap: 6px;
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      .earning-panel select {
+        width: 100%;
+        padding: 10px 11px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: var(--white);
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.84rem;
+      }
+      .temu-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 17px;
+        background: #f04472;
+        color: #fff;
+        border-radius: 8px;
+        padding: 13px 16px;
+        font-weight: 700;
+      }
+      .temu-btn:hover {
+        filter: brightness(1.08);
+        transform: translateY(-2px);
+      }
+      .whatsapp-launch {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        z-index: 600;
+        width: 56px;
+        height: 56px;
+        border: 0;
+        border-radius: 50%;
+        background: #25d366;
+        color: #fff;
+        font-size: 1.55rem;
+        box-shadow: 0 10px 26px rgba(20, 100, 50, 0.3);
+        cursor: pointer;
+      }
+      .whatsapp-launch:hover {
+        transform: scale(1.06);
+      }
+      .language-launch {
+        position: fixed;
+        right: 30px;
+        bottom: 88px;
+        z-index: 600;
+        width: 48px;
+        height: 48px;
+        border: 1px solid var(--blue-200);
+        border-radius: 50%;
+        background: var(--surface);
+        color: var(--blue-900);
+        font-size: 1.15rem;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(10, 36, 114, 0.2);
+      }
+      .language-launch:hover {
+        transform: translateY(-2px);
+        border-color: var(--blue-700);
+      }
+      .language-popup {
+        position: fixed;
+        right: 28px;
+        bottom: 145px;
+        z-index: 650;
+        width: min(320px, calc(100vw - 32px));
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+        padding: 20px;
+        display: none;
+      }
+      .language-popup.open {
+        display: block;
+      }
+      .language-popup h3 {
+        font-size: 1rem;
+        color: var(--blue-900);
+        margin: 0 0 5px;
+      }
+      .language-popup p {
+        font-size: 0.78rem;
+        color: var(--ink-soft);
+        line-height: 1.5;
+        margin: 0 0 12px;
+      }
+      .language-popup select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: var(--white);
+        color: var(--ink);
+        font: inherit;
+        font-size: 0.84rem;
+      }
+      .whatsapp-chat {
+        position: fixed;
+        right: 22px;
+        bottom: 88px;
+        z-index: 650;
+        width: min(330px, calc(100vw - 32px));
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+        padding: 18px;
+        display: none;
+      }
+      .whatsapp-chat.open {
+        display: block;
+      }
+      .whatsapp-chat h3 {
+        font-size: 1rem;
+        color: var(--blue-900);
+        margin: 0 28px 7px 0;
+      }
+      .whatsapp-chat p {
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+        line-height: 1.55;
+      }
+      .whatsapp-close {
+        position: absolute;
+        right: 12px;
+        top: 10px;
+        border: 0;
+        background: none;
+        color: var(--ink-soft);
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      .whatsapp-link {
+        display: block;
+        margin-top: 13px;
+        text-align: center;
+        background: #25d366;
+        color: #fff;
+        border-radius: 7px;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 0.82rem;
+      }
+
+      /* ---------- cta footer ---------- */
+      .cta-section {
+        padding: 90px 0;
+        text-align: center;
+        background: linear-gradient(180deg, var(--white), var(--blue-050));
+      }
+      .cta-section h2 {
+        font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+        color: var(--blue-900);
+        max-width: 640px;
+        margin: 0 auto;
+        line-height: 1.25;
+      }
+      .cta-section p {
+        margin: 18px auto 0;
+        color: var(--ink-soft);
+        max-width: 480px;
+        line-height: 1.6;
+      }
+      .cta-section .hero-cta {
+        justify-content: center;
+        margin-top: 28px;
+      }
+
+      footer {
+        padding: 34px 0;
+        border-top: 1px solid var(--blue-100);
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      footer p {
+        font-size: 0.82rem;
+        color: var(--ink-faint);
+      }
+      footer a {
+        color: var(--blue-700);
+        font-weight: 600;
+      }
+
+      @media (max-width: 540px) {
+        .wrap {
+          padding: 0 20px;
+        }
+        .hero {
+          padding: 52px 0 40px;
+        }
+        .niche-head {
+          margin-top: 44px;
+        }
+      }
+      @media (max-width: 820px) {
+        .hero-grid,
+        .claude-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-art {
+          min-height: 220px;
+          order: -1;
+        }
+        .hero-art::after {
+          width: 200px;
+          height: 200px;
+        }
+        .hero-art::before {
+          width: 165px;
+          height: 165px;
+        }
+        .radar-core {
+          width: 92px;
+          height: 92px;
+        }
+      }
+      @media (max-width: 820px) {
+        .earning-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 900px) {
+        .index-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .notes-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .exchange-section {
+          padding: 56px 0;
+        }
+        .exchange-head {
+          display: block;
+        }
+        .exchange-stats {
+          grid-template-columns: 1fr;
+        }
+        .index-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .notes-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        nav {
+          padding: 11px 16px;
+        }
+        .logo {
+          font-size: 0.88rem;
+          gap: 7px;
+        }
+        .logo-mark {
+          width: 23px;
+          height: 23px;
+        }
+        .account-actions {
+          gap: 0;
+        }
+        .account-btn {
+          font-size: 0.72rem;
+          padding-left: 4px;
+          padding-right: 4px;
+        }
+        .account-btn.signup {
+          padding: 8px 9px;
+        }
+        .nav-actions {
+          gap: 5px;
+        }
+        .nav-actions > .btn-ghost {
+          display: none;
+        }
+        .modal {
+          padding: 24px 20px;
+        }
+      }
+      @media (max-width: 380px) {
+        .logo > span:last-child {
+          font-size: 0;
+        }
+        .logo > span:last-child::after {
+          content: "Radar";
+          font-size: 0.82rem;
+        }
+        .nav {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .nav-actions {
+          gap: 2px;
+        }
+        .account-btn {
+          font-size: 0.68rem;
+          padding-left: 3px;
+          padding-right: 3px;
+        }
+        .account-btn.signup {
+          padding: 7px 7px;
+        }
+        .menu-toggle,
+        .theme-toggle {
+          width: 34px;
+          height: 34px;
+        }
+      }
+      .menu-scrim {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 12, 30, 0.5);
+        z-index: 700;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.2s ease,
+          visibility 0.2s ease;
+        pointer-events: none;
+      }
+      .menu-scrim.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: none;
+      }
+      body.menu-open {
+        overflow: hidden;
+      }
+      .navlinks {
+        position: fixed;
+        top: 0;
+        left: auto !important;
+        right: 0;
+        bottom: auto;
+        width: min(340px, 88vw);
+        height: 100vh;
+        z-index: 1200;
+        padding: 92px 28px 28px;
+        background: #fff;
+        border-left: 1px solid #dfe5ef;
+        box-shadow: -20px 0 50px rgba(0, 0, 0, 0.3);
+        display: none !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        transform: translateX(105%) !important;
+        transition: transform 0.25s ease;
+        opacity: 1;
+        pointer-events: none;
+        isolation: isolate;
+      }
+      .navlinks.open {
+        display: flex !important;
+        transform: translateX(0) !important;
+        pointer-events: auto;
+      }
+      .navlinks a {
+        font-size: 1rem;
+        line-height: 1.2;
+        padding: 16px 8px;
+        border-bottom: 1px solid #e5e7eb;
+        color: #111827 !important;
+        background: #fff;
+        opacity: 1;
+        position: relative;
+        z-index: 1;
+      }
+      .navlinks a:last-child {
+        border-bottom: 0;
+      }
+      .menu-toggle {
+        display: block !important;
+        order: 0;
+      }
+      body.menu-open .menu-toggle {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 1300;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        color: #111827;
+        border: 1px solid #dfe5ef;
+        border-radius: 50%;
+        font-size: 1.35rem;
+        line-height: 1;
+      }
+      .nav-actions {
+        margin-left: auto;
+      }
+      .nav-actions > .btn-ghost {
+        display: none;
+      }
+      @media (max-width: 560px) {
+        .navlinks {
+          padding: 82px 20px 24px;
+        }
+        .navlinks a {
+          padding: 14px 6px;
+        }
+      }
+      @media (max-width: 560px) {
+        .earning-section {
+          padding: 46px 0;
+        }
+        .whatsapp-launch {
+          right: 16px;
+          bottom: 16px;
+        }
+        .language-launch {
+          right: 20px;
+          bottom: 82px;
+        }
+        .language-popup {
+          right: 16px;
+          bottom: 137px;
+        }
+        .whatsapp-chat {
+          right: 16px;
+          bottom: 82px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="menu-scrim" id="menu-scrim"></div>
+
+    <header>
+      <nav>
+        <div class="logo">
+          <span class="logo-mark"></span
+          ><span
+            >Affiliate&nbsp;Radar<span style="color: var(--blue-700)"
+              >&nbsp;2026</span
+            ></span
+          >
+        </div>
+        <div class="navlinks">
+          <a href="#home" class="hl">Home</a>
+          <a href="#niches" class="hl">Explore Niches</a>
+          <a href="#ladder" class="hl">Choose Products</a>
+          <a href="#why" class="hl">How It Works</a>
+          <a href="#claude" class="hl">Claude Guide</a>
+          <a href="#ugc" class="hl">UGC Ads Guide</a>
+          <a href="shop.html" class="hl">Shop</a>
+          <a href="about.html" class="hl">About Us</a>
+          <a href="careers.html" class="hl">Careers</a>
+          <a href="connect.html" class="hl">Connect</a>
+        </div>
+        <div class="nav-actions">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            title="Switch theme"
+          >
+            ☾
+          </button>
+          <div class="account-actions">
+            <button class="account-btn" type="button" data-auth="login">
+              Log in
+            </button>
+            <button class="account-btn signup" type="button" data-auth="signup">
+              Sign up
+            </button>
+          </div>
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-top">
+            <span class="eyebrow">Affiliate Radar · Your starting point</span>
+            <h1>
+              Find products people already want to <span class="hl">buy</span>.
+            </h1>
+            <p class="sub">
+              Explore proven niches, choose products that fit your audience, and
+              learn how to create useful content that earns trust before it
+              earns a commission.
+            </p>
+            <div class="hero-cta">
+              <a href="#niches" class="btn btn-primary">Explore the Top 10 →</a>
+              <a href="shop.html" class="btn btn-ghost">Shop Now</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-label="Animated opportunity radar">
+            <div class="radar-core">
+              <span class="signal-dot dot-one"></span
+              ><span class="signal-dot dot-two"></span
+              ><span class="signal-dot dot-three"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="niche-head reveal" id="niches">
+          <h2>Start here: top 10 opportunity scores</h2>
+          <span class="cnt">RANKED / 100</span>
+        </div>
+
+        <div class="niche-grid" id="niche-grid"></div>
+      </div>
+    </section>
+
+    <section class="exchange-section" id="market-index">
+      <div class="wrap">
+        <div class="exchange-head reveal">
+          <div>
+            <span class="eyebrow">The Niche Exchange · 2026</span>
+            <h2>25 niches. One market read.</h2>
+            <p>
+              A trading-desk view of where creator attention can convert to
+              affiliate revenue. Each listing is scored across virality,
+              monetization, scalability, content ease, audience demand, AI
+              leverage, competition, and longevity.
+            </p>
+          </div>
+        </div>
+        <div class="exchange-stats reveal">
+          <div class="exchange-stat">
+            <strong>25</strong><span>Niches indexed</span>
+          </div>
+          <div class="exchange-stat">
+            <strong>93</strong><span>Top opportunity score</span>
+          </div>
+          <div class="exchange-stat">
+            <strong>8</strong><span>Weighted factors</span>
+          </div>
+        </div>
+        <div class="index-grid reveal">
+          <article class="index-item">
+            <span class="index-rank">01 · AITL</span>
+            <h3>AI Tools &amp; Productivity Software</h3>
+            <div class="index-score">
+              93 <span class="index-signal">Strong Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">02 · FINX</span>
+            <h3>Personal Finance &amp; Investing Apps</h3>
+            <div class="index-score">
+              88 <span class="index-signal">Strong Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">03 · SLIM</span>
+            <h3>Weight Loss / GLP-1-Adjacent Lifestyle</h3>
+            <div class="index-score">
+              86 <span class="index-signal">Strong Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">04 · SKIN</span>
+            <h3>Skincare: Acne &amp; Anti-Aging</h3>
+            <div class="index-score">
+              83 <span class="index-signal">Strong Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">05 · PTHK</span>
+            <h3>Credit Cards &amp; Travel Points</h3>
+            <div class="index-score">
+              82 <span class="index-signal">Strong Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">06 · HSTL</span>
+            <h3>Side Hustles &amp; Make Money Online</h3>
+            <div class="index-score">
+              82 <span class="index-signal">Strong Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">07 · GRIT</span>
+            <h3>Self-Improvement &amp; Productivity</h3>
+            <div class="index-score">
+              82 <span class="index-signal">Strong Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">08 · GUTX</span>
+            <h3>Gut Health &amp; Supplements</h3>
+            <div class="index-score">
+              80 <span class="index-signal">Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">09 · HORM</span>
+            <h3>Women&apos;s Hormone Health</h3>
+            <div class="index-score">
+              79 <span class="index-signal">Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">10 · SAAS</span>
+            <h3>B2B SaaS &amp; Software Reviews</h3>
+            <div class="index-score">
+              77 <span class="index-signal">Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">11 · LUVE</span>
+            <h3>Dating &amp; Relationship Coaching</h3>
+            <div class="index-score">
+              77 <span class="index-signal">Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">12 · VPNX</span>
+            <h3>VPN, Privacy &amp; Cybersecurity</h3>
+            <div class="index-score">
+              76 <span class="index-signal">Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">13 · SLEP</span>
+            <h3>Sleep Optimization</h3>
+            <div class="index-score">
+              74 <span class="index-signal">Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">14 · STAR</span>
+            <h3>Astrology &amp; Manifestation</h3>
+            <div class="index-score">
+              74 <span class="index-signal">Buy</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">15 · PETZ</span>
+            <h3>Pet Health &amp; Pet Tech</h3>
+            <div class="index-score">
+              73 <span class="index-signal">Watch</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">16 · MIND</span>
+            <h3>Mental Health &amp; Meditation Apps</h3>
+            <div class="index-score">
+              72 <span class="index-signal">Watch</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">17 · EDUC</span>
+            <h3>Online Courses &amp; Education</h3>
+            <div class="index-score">
+              71 <span class="index-signal">Watch</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">18 · NMAD</span>
+            <h3>Remote Work &amp; Nomad Tools</h3>
+            <div class="index-score">
+              70 <span class="index-signal">Watch</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">19 · HAIR</span>
+            <h3>Hair Growth &amp; Hair Care</h3>
+            <div class="index-score">
+              65 <span class="index-signal">Watch</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">20 · TIDY</span>
+            <h3>Home Organization &amp; Decor</h3>
+            <div class="index-score">
+              65 <span class="index-signal">Watch</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">21 · ECOX</span>
+            <h3>Sustainable Products</h3>
+            <div class="index-score">
+              63 <span class="index-signal">Watch</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">22 · GDGT</span>
+            <h3>Smart Home &amp; Tech Gadgets</h3>
+            <div class="index-score">
+              62 <span class="index-signal">Watch</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">23 · BABY</span>
+            <h3>Pregnancy &amp; New Parent Products</h3>
+            <div class="index-score">
+              59 <span class="index-signal">Hold</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">24 · GYMX</span>
+            <h3>Home Gym Equipment</h3>
+            <div class="index-score">
+              57 <span class="index-signal">Hold</span>
+            </div>
+          </article>
+          <article class="index-item">
+            <span class="index-rank">25 · WEDX</span>
+            <h3>Wedding Planning &amp; Bridal</h3>
+            <div class="index-score">
+              56 <span class="index-signal">Hold</span>
+            </div>
+          </article>
+        </div>
+        <div class="notes-grid reveal">
+          <article class="analyst-note">
+            <b>01 · AI authority plus human proof wins</b>
+            <p>
+              Pair AI-assisted production with decisions that still require
+              human trust, such as money, appearance, and health.
+            </p>
+          </article>
+          <article class="analyst-note">
+            <b>02 · Recurring commissions compound</b>
+            <p>
+              AI tools, SaaS, finance apps, and subscription products can build
+              lifetime value instead of one-time CPA.
+            </p>
+          </article>
+          <article class="analyst-note">
+            <b>03 · Authenticity is a moat</b>
+            <p>
+              Pets, fitness, baby products, and mental health benefit from real
+              experience that content farms cannot easily copy.
+            </p>
+          </article>
+          <article class="analyst-note">
+            <b>04 · Build clusters</b>
+            <p>
+              Strong audience clusters include Money, Optimization, and
+              Wellness. Related niches give your content room to compound.
+            </p>
+          </article>
+          <article class="analyst-note">
+            <b>05 · Pinterest stays underrated</b>
+            <p>
+              Searchable pins can keep converting for years, especially in
+              decor, wedding, skincare, and sleep.
+            </p>
+          </article>
+          <article class="analyst-note">
+            <b>06 · Compliance is strategy</b>
+            <p>
+              Finance, health, and mental-health content needs clear disclosures
+              and careful claims from the first post.
+            </p>
+          </article>
+        </div>
+        <p class="exchange-disclaimer">
+          The Niche Exchange · 2026 Organic Affiliate Opportunity Index. Data is
+          directional, not financial advice. Confirm current commission terms
+          and platform rules before publishing.
+        </p>
+      </div>
+    </section>
+
+    <section class="earning-section" id="temu-earning">
+      <div class="wrap earning-grid">
+        <div>
+          <span class="eyebrow">Affiliate Opportunity</span>
+          <h2 id="earning-title">Sirf 1 click se earning shuru karein</h2>
+          <p class="earning-copy" id="earning-copy">
+            Is link se website visit karein aur free affiliate program join
+            karein. Aap is link ko international platforms par forward karke
+            offer ke mutabiq rewards hasil kar sakte hain; supplied offer mein
+            up to $50 reward aur signup ke baad commission 35% tak auto-upgrade
+            ka zikr hai. Har signup, click aur commission program ke rules aur
+            eligibility par depend karta hai.
+          </p>
+          <p class="earning-note" id="earning-note">
+            Offer details aur rewards partner ke current terms ke mutabiq change
+            ho sakte hain. Sign up se pehle official terms zaroor check karein.
+          </p>
+          <a
+            class="temu-btn"
+            href="https://temu.to/k/uc2vs3nek3x"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="temu-link"
+            >Website visit karein →</a
+          >
+        </div>
+        <div class="earning-panel">
+          <label for="reason-select"
+            >Aap kis wajah se aaye hain?
+            <select id="reason-select" aria-label="Choose reason">
+              <option>Affiliate program join karna</option>
+              <option>Product shopping karna</option>
+              <option>UGC partnership samajhna</option>
+              <option>Commission details lena</option>
+            </select>
+          </label>
+          <p class="earning-note" id="language-status">
+            Aap ki zaban ke mutabiq message update hoga.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="claude-section" id="claude">
+      <div class="wrap claude-grid">
+        <div class="reveal">
+          <span class="eyebrow">Claude x Affiliate Marketing</span>
+          <h2>Use Claude as your research and content partner.</h2>
+          <p class="intro-copy">
+            Claude can help you move from a rough product idea to useful, honest
+            affiliate content. Keep your experience at the center, then use AI
+            to sharpen the work around it.
+          </p>
+        </div>
+        <div class="claude-steps reveal">
+          <div class="claude-step">
+            <span class="step-number">01</span>
+            <div>
+              <strong>Find a real buyer problem</strong>
+              <p>
+                Ask Claude to map audience questions, objections, and search
+                intent for one niche. Verify claims against reliable sources.
+              </p>
+            </div>
+          </div>
+          <div class="claude-step">
+            <span class="step-number">02</span>
+            <div>
+              <strong>Build a content angle</strong>
+              <p>
+                Give Claude your actual test results and ask for hooks,
+                comparisons, short scripts, and a clear disclosure. Never invent
+                a personal result.
+              </p>
+            </div>
+          </div>
+          <div class="claude-step">
+            <span class="step-number">03</span>
+            <div>
+              <strong>Turn attention into trust</strong>
+              <p>
+                Use practical guides, transparent pros and cons, and a relevant
+                marketplace link. Recommend only products that genuinely fit the
+                reader.
+              </p>
+            </div>
+          </div>
+          <div class="claude-step">
+            <span class="step-number">04</span>
+            <div>
+              <strong>Measure and improve</strong>
+              <p>
+                Ask Claude to compare click-through and conversion data, then
+                improve one headline or call to action at a time. Follow every
+                network's rules.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="claude-section" id="ugc">
+      <div class="wrap claude-grid">
+        <div class="reveal">
+          <span class="eyebrow">UGC Ads Guide</span>
+          <h2>Make UGC ads that feel like recommendations.</h2>
+          <p class="intro-copy">
+            User-generated content works when it shows a believable problem, a
+            real product moment, and a clear next step. Keep the creator's voice
+            natural and disclose the partnership.
+          </p>
+        </div>
+        <div class="claude-steps reveal">
+          <div class="claude-step">
+            <span class="step-number">01</span>
+            <div>
+              <strong>Open with the problem</strong>
+              <p>
+                Start with a specific frustration your audience recognizes in
+                the first few seconds.
+              </p>
+            </div>
+          </div>
+          <div class="claude-step">
+            <span class="step-number">02</span>
+            <div>
+              <strong>Show the product in use</strong>
+              <p>
+                Use a close-up demo, an honest first impression, and one
+                practical result instead of a polished sales pitch.
+              </p>
+            </div>
+          </div>
+          <div class="claude-step">
+            <span class="step-number">03</span>
+            <div>
+              <strong>Share proof and limits</strong>
+              <p>
+                Explain who the product is for, what changed, and what it cannot
+                do. Specificity creates trust.
+              </p>
+            </div>
+          </div>
+          <div class="claude-step">
+            <span class="step-number">04</span>
+            <div>
+              <strong>Close with one action</strong>
+              <p>
+                Invite viewers to learn more or shop through the relevant link.
+                Add an advertising disclosure where required.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="belief" id="why">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="eyebrow" style="color: var(--blue-500)"
+            >Why Organic, Why Now</span
+          >
+          <h2 style="margin-top: 14px">How affiliate marketing works</h2>
+          <p class="body">
+            AI leveled the production playing field — anyone can make a clean
+            video now. What it can't fake is a real result, a real routine, a
+            real &ldquo;this actually worked for me.&rdquo; That gap is exactly
+            what organic affiliates are built to fill, and it's why platforms
+            keep rewarding authentic, repeatable content over polished ads.
+          </p>
+        </div>
+        <div class="stat-list reveal">
+          <div class="stat">
+            <div class="num">22%+</div>
+            <div class="label">
+              of TikTok Shop's US GMV comes from beauty &amp; personal care
+              alone
+            </div>
+          </div>
+          <div class="stat">
+            <div class="num">+55%</div>
+            <div class="label">
+              year-over-year growth in wellness content — the platform's
+              fastest-growing category
+            </div>
+          </div>
+          <div class="stat">
+            <div class="num">20–50%</div>
+            <div class="label">
+              typical recurring commission on AI &amp; SaaS tools, often for the
+              life of the subscription
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ladder" id="ladder">
+      <div class="wrap">
+        <div class="ladder-head reveal">
+          <span class="eyebrow">The Product Ladder</span>
+          <h2>
+            Choose a product and build a <span class="hl">clear path</span> to
+            your first commission.
+          </h2>
+          <p>
+            Start where the trust barrier is lowest. Climb toward recurring,
+            higher-ticket commissions as your audience — and your credibility —
+            grows.
+          </p>
+        </div>
+
+        <!-- TIER 1 -->
+        <div class="tier reveal">
+          <div class="tier-label">
+            <span class="tier-badge">Tier 1 · Start Here</span>
+            <span class="tier-title">Beginner</span>
+            <span class="tier-sub"
+              >Low trust barrier · fast first commission</span
+            >
+          </div>
+          <div class="p-grid">
+            <div class="p-card">
+              <span class="p-step">STEP 01</span>
+              <h4 class="hl">Skincare &amp; K-Beauty Finds</h4>
+              <p class="what">
+                Serums, routines, and skincare devices via TikTok Shop Affiliate
+                or Amazon Associates.
+              </p>
+              <p class="why">
+                <b>Why start here:</b> zero authority required — a close-up demo
+                and a real result does the selling for you.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="skincare k beauty serum"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>5–20% per sale
+              </div>
+            </div>
+            <div class="p-card">
+              <span class="p-step">STEP 02</span>
+              <h4 class="hl">Fragrance &amp; Perfume Dupes</h4>
+              <p class="what">
+                Designer dupes and niche fragrance promotion through TikTok
+                Shop's affiliate marketplace.
+              </p>
+              <p class="why">
+                <b>Why start here:</b> you can't show scent, so it forces you to
+                master storytelling hooks — the most transferable skill in this
+                business.
+              </p>
+              <div class="marketplaces" data-product="fragrance perfume"></div>
+              <div class="commission">
+                <span>Commission</span>8–15% per sale
+              </div>
+            </div>
+            <div class="p-card">
+              <span class="p-step">STEP 03</span>
+              <h4 class="hl">Daily Supplement Stacks</h4>
+              <p class="what">
+                Collagen, magnesium, and gut-health subscriptions through
+                networks like ShareASale or Impact.
+              </p>
+              <p class="why">
+                <b>Why start here:</b> subscription rebills mean one video keeps
+                paying out for months after you post it.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="collagen magnesium supplement"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>15–30%, often recurring
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIER 2 -->
+        <div class="tier reveal">
+          <div class="tier-label">
+            <span class="tier-badge">Tier 2 · Growth</span>
+            <span class="tier-title">Intermediate</span>
+            <span class="tier-sub">Needs a little audience trust</span>
+          </div>
+          <div class="p-grid">
+            <div class="p-card">
+              <span class="p-step">STEP 04</span>
+              <h4 class="hl">Home Workout &amp; Fitness Apps</h4>
+              <p class="what">
+                App subscriptions promoted through progress updates and program
+                breakdowns.
+              </p>
+              <p class="why">
+                <b>Why now:</b> takes more consistency to build, but recurring
+                commission starts to compound fast.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="home workout fitness equipment"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>20–40% recurring
+              </div>
+            </div>
+            <div class="p-card">
+              <span class="p-step">STEP 05</span>
+              <h4 class="hl">Personal Finance &amp; Budgeting Apps</h4>
+              <p class="what">
+                Budgeting, cashback, and credit-building tools people search for
+                by name.
+              </p>
+              <p class="why">
+                <b>Why now:</b> needs a credible narrative — the audience trust
+                you've built makes this convert.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="budgeting finance app book"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>$20–150 flat or 20–40% recurring
+              </div>
+            </div>
+            <div class="p-card">
+              <span class="p-step">STEP 06</span>
+              <h4 class="hl">Online Courses &amp; Certifications</h4>
+              <p class="what">
+                Skill-based courses in design, coding, trading, or language
+                learning.
+              </p>
+              <p class="why">
+                <b>Why now:</b> your &ldquo;I taught myself this&rdquo; story is
+                believable now — and payouts per sale rank among the highest
+                here.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="online course certification"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>20–50% per sale
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIER 3 -->
+        <div class="tier reveal">
+          <div class="tier-label">
+            <span class="tier-badge">Tier 3 · Scale</span>
+            <span class="tier-title">Advanced</span>
+            <span class="tier-sub">Highest ticket · longest payout life</span>
+          </div>
+          <div class="p-grid">
+            <div class="p-card">
+              <span class="p-step">STEP 07</span>
+              <h4 class="hl">AI Productivity &amp; Writing Tools</h4>
+              <p class="what">
+                AI workspaces, writing assistants, and SEO copilots — the tools
+                everyone is anxious to master.
+              </p>
+              <p class="why">
+                <b>Why now:</b> the highest-leverage niche on the whole radar —
+                commission on tools people renew for years.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="AI productivity writing tools book"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>20–50% recurring, some lifetime
+              </div>
+            </div>
+            <div class="p-card">
+              <span class="p-step">STEP 08</span>
+              <h4 class="hl">AI Video &amp; Avatar Creation Tools</h4>
+              <p class="what">
+                Faceless video generators, talking-avatar tools, and voice
+                cloning software.
+              </p>
+              <p class="why">
+                <b>Why now:</b> you use the product to make the content about
+                the product — a closed loop few other niches offer.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="AI video creation software book"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>20–30% recurring
+              </div>
+            </div>
+            <div class="p-card">
+              <span class="p-step">STEP 09</span>
+              <h4 class="hl">VPN &amp; Cybersecurity Tools</h4>
+              <p class="what">
+                VPNs, password managers, and identity-theft protection software.
+              </p>
+              <p class="why">
+                <b>Why now:</b> the highest flat payout-per-conversion on this
+                list, with a pitch you can deliver in one breath.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="VPN password manager"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>$30–100+ flat or 30%+ recurring
+              </div>
+            </div>
+            <div class="p-card">
+              <span class="p-step">STEP 10</span>
+              <h4 class="hl">Remote Work &amp; B2B SaaS Tools</h4>
+              <p class="what">
+                Project management, invoicing, and workflow software built for
+                remote teams.
+              </p>
+              <p class="why">
+                <b>Why now:</b> the ceiling of the ladder — higher-ticket B2B
+                tools with the longest cookie windows on this radar.
+              </p>
+              <div
+                class="marketplaces"
+                data-product="remote work office equipment"
+              ></div>
+              <div class="commission">
+                <span>Commission</span>20–40% recurring, $100+ per account
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="wrap reveal">
+        <span class="eyebrow">Your Next Move</span>
+        <h2 style="margin-top: 14px">Ready to choose your first product?</h2>
+        <p>
+          Start on Tier 1 for your first commission this month, and layer in
+          Tier 3 recurring commissions as your audience — and authority — grow.
+        </p>
+        <div class="hero-cta">
+          <a href="connect.html" class="btn btn-primary">Connect with us →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <p>
+          Affiliate Radar 2026 — built for organic, US-market affiliate growth.
+          No ad spend required.
+        </p>
+        <p>
+          Contact Anas:
+          <a href="mailto:anasoffice501@gmail.com">anasoffice501@gmail.com</a> ·
+          <a href="connect.html">Connect</a>
+        </p>
+      </div>
+    </footer>
+
+    <div class="modal-backdrop" id="modal-backdrop" role="presentation">
+      <section
+        class="modal"
+        id="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <button
+          class="modal-close"
+          id="modal-close"
+          type="button"
+          aria-label="Close dialog"
+        >
+          ×
+        </button>
+        <div id="modal-content"></div>
+      </section>
+    </div>
+
+    <button
+      class="whatsapp-launch"
+      id="whatsapp-launch"
+      type="button"
+      aria-label="Open WhatsApp help"
+    >
+      WA
+    </button>
+    <button
+      class="language-launch"
+      id="language-launch"
+      type="button"
+      aria-label="Choose website language"
+      title="Choose language"
+    >
+      文
+    </button>
+    <div
+      class="language-popup"
+      id="language-popup"
+      role="dialog"
+      aria-label="Website language"
+    >
+      <h3>Choose your language</h3>
+      <p>The main website text will update when you select a language.</p>
+      <select id="language-select" aria-label="Choose language">
+        <option value="roman-urdu">Roman Urdu</option>
+        <option value="en">English</option>
+        <option value="ur">Urdu</option>
+        <option value="hi">Hindi</option>
+        <option value="ar">Arabic</option>
+        <option value="bn">Bengali</option>
+        <option value="zh">Chinese</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="pt">Portuguese</option>
+        <option value="ru">Russian</option>
+        <option value="ja">Japanese</option>
+        <option value="ko">Korean</option>
+        <option value="tr">Turkish</option>
+        <option value="it">Italian</option>
+        <option value="id">Indonesian</option>
+        <option value="ms">Malay</option>
+        <option value="fa">Persian</option>
+        <option value="sw">Swahili</option>
+      </select>
+    </div>
+    <div
+      class="whatsapp-chat"
+      id="whatsapp-chat"
+      role="dialog"
+      aria-label="WhatsApp help"
+    >
+      <button
+        class="whatsapp-close"
+        id="whatsapp-close"
+        type="button"
+        aria-label="Close WhatsApp help"
+      >
+        ×
+      </button>
+      <h3>Affiliate help chahiye?</h3>
+      <p>
+        Anas se WhatsApp par details poochhein. Chat close karne par bhi aap
+        WhatsApp par redirect ho jayenge.
+      </p>
+      <a
+        class="whatsapp-link"
+        href="https://wa.me/923158242773?text=Salam%20Anas%2C%20mujhe%20affiliate%20program%20ke%20bare%20mein%20details%20chahiye."
+        target="_blank"
+        rel="noopener noreferrer"
+        >WhatsApp par message karein</a
+      >
+    </div>
+
+    <script>
+      (function () {
+        var menuToggle = document.getElementById("menu-toggle");
+        var navlinks = document.querySelector(".navlinks");
+        var menuScrim = document.getElementById("menu-scrim");
+        function closeMenu() {
+          navlinks.classList.remove("open");
+          menuScrim.classList.remove("open");
+          document.body.classList.remove("menu-open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation");
+          menuToggle.textContent = "☰";
+        }
+        menuToggle.addEventListener("click", function () {
+          var isOpen = navlinks.classList.toggle("open");
+          menuScrim.classList.toggle("open", isOpen);
+          document.body.classList.toggle("menu-open", isOpen);
+          menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation" : "Open navigation",
+          );
+          menuToggle.textContent = isOpen ? "×" : "☰";
+        });
+        navlinks.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", closeMenu);
+        });
+        menuScrim.addEventListener("click", closeMenu);
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") closeMenu();
+        });
+
+        var backdrop = document.getElementById("modal-backdrop");
+        var modalContent = document.getElementById("modal-content");
+        var modalClose = document.getElementById("modal-close");
+        function closeModal() {
+          backdrop.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+        function openModal(content) {
+          modalContent.innerHTML = content;
+          backdrop.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        modalClose.addEventListener("click", closeModal);
+        backdrop.addEventListener("click", function (event) {
+          if (event.target === backdrop) closeModal();
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") closeModal();
+        });
+
+        function authMarkup(mode) {
+          var signup = mode === "signup";
+          return (
+            '<span class="eyebrow">Affiliate Radar account</span>' +
+            '<h2 id="modal-title">' +
+            (signup ? "Create a new account, Author." : "Welcome back.") +
+            "</h2>" +
+            "<p>" +
+            (signup
+              ? "Save your favorite opportunities and build your affiliate plan in one place."
+              : "Log in to continue building your affiliate strategy.") +
+            "</p>" +
+            '<form class="auth-form" id="auth-form">' +
+            (signup
+              ? '<label>Full name<input name="name" required placeholder="Your name"></label>'
+              : "") +
+            '<label>Email<input name="email" type="email" required placeholder="you@example.com"></label>' +
+            '<label>Password<input name="password" type="password" required placeholder="At least 8 characters"></label>' +
+            (signup
+              ? '<label>Account type<select name="role"><option>Author</option><option>Creator</option><option>Reader</option></select></label>'
+              : "") +
+            '<button class="auth-submit" type="submit">' +
+            (signup ? "Create account" : "Log in") +
+            "</button>" +
+            '<p class="auth-switch">' +
+            (signup ? "Already have an account? " : "New here? ") +
+            '<button class="text-button" type="button" data-auth-switch="' +
+            (signup ? "login" : "signup") +
+            '">' +
+            (signup ? "Log in" : "Create a new account") +
+            "</button></p></form>"
+          );
+        }
+        function bindAuthForm() {
+          document
+            .getElementById("auth-form")
+            .addEventListener("submit", function (event) {
+              event.preventDefault();
+              var signup = this.querySelector('[name="role"]');
+              modalContent.innerHTML =
+                '<span class="eyebrow">Account ready</span><h2 id="modal-title">You are all set.</h2><p>' +
+                (signup
+                  ? "Your Author profile is ready to start publishing thoughtful affiliate content."
+                  : "Your local demo login was accepted. Connect a backend to enable live accounts.") +
+                '</p><button class="auth-submit" type="button" id="done-button">Continue</button>';
+              document
+                .getElementById("done-button")
+                .addEventListener("click", closeModal);
+            });
+          document
+            .querySelector("[data-auth-switch]")
+            .addEventListener("click", function () {
+              openAuth(this.getAttribute("data-auth-switch"));
+            });
+        }
+        function openAuth(mode) {
+          openModal(authMarkup(mode));
+          bindAuthForm();
+        }
+        document.querySelectorAll("[data-auth]").forEach(function (button) {
+          button.addEventListener("click", function () {
+            openAuth(this.getAttribute("data-auth"));
+          });
+        });
+
+        var themeToggle = document.getElementById("theme-toggle");
+        var savedTheme = localStorage.getItem("affiliate-radar-theme");
+        var initialTheme =
+          savedTheme ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", initialTheme);
+        function updateThemeButton() {
+          var dark =
+            document.documentElement.getAttribute("data-theme") === "dark";
+          themeToggle.textContent = dark ? "☀" : "☾";
+          themeToggle.setAttribute(
+            "aria-label",
+            dark ? "Switch to light mode" : "Switch to dark mode",
+          );
+        }
+        updateThemeButton();
+        themeToggle.addEventListener("click", function () {
+          var nextTheme =
+            document.documentElement.getAttribute("data-theme") === "dark"
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", nextTheme);
+          localStorage.setItem("affiliate-radar-theme", nextTheme);
+          updateThemeButton();
+        });
+
+        var languageSelect = document.getElementById("language-select");
+        var languageLaunch = document.getElementById("language-launch");
+        var languagePopup = document.getElementById("language-popup");
+        languageLaunch.addEventListener("click", function () {
+          languagePopup.classList.toggle("open");
+        });
+        document.addEventListener("click", function (event) {
+          if (
+            !languagePopup.contains(event.target) &&
+            event.target !== languageLaunch
+          )
+            languagePopup.classList.remove("open");
+        });
+        var reasonSelect = document.getElementById("reason-select");
+        var earningTitle = document.getElementById("earning-title");
+        var earningCopy = document.getElementById("earning-copy");
+        var earningNote = document.getElementById("earning-note");
+        var languageStatus = document.getElementById("language-status");
+        var translations = {
+          "roman-urdu": {
+            title: "Sirf 1 click se earning shuru karein",
+            copy: "Is link se Temu website visit karein aur free affiliate program join karein. Aap is link ko international platforms par forward karke offer ke mutabiq rewards hasil kar sakte hain; supplied offer mein up to $50 reward aur signup ke baad commission 35% tak auto-upgrade ka zikr hai. Har signup, click aur commission program ke rules aur eligibility par depend karta hai.",
+            note: "Offer details aur rewards Temu ke current terms ke mutabiq change ho sakte hain. Sign up se pehle official terms zaroor check karein.",
+            status: "Aap ki zaban ke mutabiq message update hoga.",
+          },
+          en: {
+            title: "Start earning with one click",
+            copy: "Visit Temu through this link and join the free affiliate program. Share the link on international platforms; signups, clicks, and commissions depend on the program rules and eligibility.",
+            note: "Offer details and rewards may change under Temu's current terms. Check the official terms before signing up.",
+            status: "Your message has been updated.",
+          },
+          ur: {
+            title: "Sirf aik click se earning shuru karein",
+            copy: "Is link ke zariye Temu visit karein aur free affiliate program join karein. Link ko international platforms par share karein; commission program ke rules aur eligibility par depend karta hai.",
+            note: "Offer aur rewards Temu ke current terms ke mutabiq badal sakte hain.",
+            status: "Aap ka message Urdu mein update ho gaya hai.",
+          },
+          hi: {
+            title: "एक क्लिक से कमाई शुरू करें",
+            copy: "इस लिंक से Temu पर जाएं और मुफ्त एफिलिएट प्रोग्राम में शामिल हों। अंतरराष्ट्रीय प्लेटफॉर्म पर लिंक साझा करें; कमाई कार्यक्रम के नियमों और पात्रता पर निर्भर करती है।",
+            note: "ऑफर और रिवॉर्ड Temu की वर्तमान शर्तों के अनुसार बदल सकते हैं।",
+            status: "संदेश हिंदी में अपडेट हो गया है।",
+          },
+          ar: {
+            title: "ابدأ الربح بنقرة واحدة",
+            copy: "زُر Temu من خلال هذا الرابط وانضم إلى البرنامج المجاني. شارك الرابط على المنصات الدولية؛ تعتمد العمولات على شروط البرنامج والأهلية.",
+            note: "قد تتغير تفاصيل العرض والمكافآت وفقاً لشروط Temu الحالية.",
+            status: "تم تحديث الرسالة بالعربية.",
+          },
+          es: {
+            title: "Empieza a ganar con un clic",
+            copy: "Visita Temu mediante este enlace y únete a su programa de afiliados gratuito. Comparte el enlace en plataformas internacionales; las comisiones dependen de las reglas y requisitos del programa.",
+            note: "Los detalles de la oferta pueden cambiar según los términos actuales de Temu.",
+            status: "El mensaje se actualizó en español.",
+          },
+          fr: {
+            title: "Commencez à gagner en un clic",
+            copy: "Visitez Temu avec ce lien et rejoignez son programme d’affiliation gratuit. Partagez le lien sur des plateformes internationales; les commissions dépendent des règles du programme.",
+            note: "Les détails de l’offre peuvent changer selon les conditions actuelles de Temu.",
+            status: "Le message a été mis à jour en français.",
+          },
+          de: {
+            title: "Mit einem Klick verdienen",
+            copy: "Besuchen Sie Temu über diesen Link und nehmen Sie am kostenlosen Partnerprogramm teil. Teilen Sie den Link auf internationalen Plattformen; Provisionen hängen von den Programmregeln ab.",
+            note: "Angebotsdetails können sich gemäß den aktuellen Temu-Bedingungen ändern.",
+            status: "Die Nachricht wurde auf Deutsch aktualisiert.",
+          },
+          pt: {
+            title: "Comece a ganhar com um clique",
+            copy: "Visite a Temu por este link e participe do programa de afiliados gratuito. Compartilhe o link em plataformas internacionais; as comissões dependem das regras do programa.",
+            note: "Os detalhes da oferta podem mudar conforme os termos atuais da Temu.",
+            status: "A mensagem foi atualizada em português.",
+          },
+          zh: {
+            title: "一键开始赚取收益",
+            copy: "通过此链接访问 Temu 并加入免费联盟计划。您可以在国际平台分享链接；收益取决于计划规则和资格。",
+            note: "优惠和奖励可能根据 Temu 当前条款变化。",
+            status: "消息已更新为中文。",
+          },
+          ja: {
+            title: "ワンクリックで収益を始める",
+            copy: "このリンクからTemuを訪問し、無料のアフィリエイトプログラムに参加しましょう。国際的なプラットフォームで共有できます。",
+            note: "オファー内容はTemuの現在の規約により変更される場合があります。",
+            status: "日本語に更新しました。",
+          },
+          ko: {
+            title: "한 번의 클릭으로 수익 시작하기",
+            copy: "이 링크로 Temu를 방문하고 무료 제휴 프로그램에 가입하세요. 국제 플랫폼에서 링크를 공유할 수 있으며 수익은 프로그램 규정에 따릅니다.",
+            note: "혜택과 보상은 Temu의 현재 약관에 따라 변경될 수 있습니다.",
+            status: "한국어로 업데이트되었습니다.",
+          },
+        };
+        var interfaceTranslations = {
+          "roman-urdu": [
+            "Home",
+            "Explore Niches",
+            "Choose Products",
+            "How It Works",
+            "Claude Guide",
+            "UGC Ads Guide",
+            "About Us",
+            "Careers",
+            "Connect",
+            "Explore the Top 10 →",
+            "Choose a product",
+            "Start here: top 10 opportunity scores",
+            "Choose a product and build a clear path to your first commission.",
+            "How affiliate marketing works",
+            "Use Claude as your research and content partner.",
+            "Make UGC ads that feel like recommendations.",
+            "Ready to choose your first product?",
+            "Connect with us →",
+          ],
+          en: [
+            "Home",
+            "Explore Niches",
+            "Choose Products",
+            "How It Works",
+            "Claude Guide",
+            "UGC Ads Guide",
+            "About Us",
+            "Careers",
+            "Connect",
+            "Explore the Top 10 →",
+            "Choose a product",
+            "Start here: top 10 opportunity scores",
+            "Choose a product and build a clear path to your first commission.",
+            "How affiliate marketing works",
+            "Use Claude as your research and content partner.",
+            "Make UGC ads that feel like recommendations.",
+            "Ready to choose your first product?",
+            "Connect with us →",
+          ],
+          es: [
+            "Inicio",
+            "Explorar nichos",
+            "Elegir productos",
+            "Cómo funciona",
+            "Guía de Claude",
+            "Guía de anuncios UGC",
+            "Sobre nosotros",
+            "Carreras",
+            "Contacto",
+            "Explorar las 10 mejores →",
+            "Elegir un producto",
+            "Empieza aquí: puntuaciones de oportunidad",
+            "Elige un producto y crea un camino claro hacia tu primera comisión.",
+            "Cómo funciona el marketing de afiliados",
+            "Usa Claude como socio de investigación y contenido.",
+            "Crea anuncios UGC que parezcan recomendaciones.",
+            "¿Listo para elegir tu primer producto?",
+            "Conectar con nosotros →",
+          ],
+          fr: [
+            "Accueil",
+            "Explorer les niches",
+            "Choisir des produits",
+            "Comment ça marche",
+            "Guide Claude",
+            "Guide des publicités UGC",
+            "À propos",
+            "Carrières",
+            "Contact",
+            "Explorer le top 10 →",
+            "Choisir un produit",
+            "Commencez ici : scores d’opportunité",
+            "Choisissez un produit et créez un chemin clair vers votre première commission.",
+            "Comment fonctionne le marketing d’affiliation",
+            "Utilisez Claude comme partenaire de recherche et de contenu.",
+            "Créez des publicités UGC qui ressemblent à des recommandations.",
+            "Prêt à choisir votre premier produit ?",
+            "Nous contacter →",
+          ],
+          de: [
+            "Startseite",
+            "Nischen entdecken",
+            "Produkte wählen",
+            "So funktioniert es",
+            "Claude-Leitfaden",
+            "UGC-Anzeigenleitfaden",
+            "Über uns",
+            "Karriere",
+            "Kontakt",
+            "Top 10 entdecken →",
+            "Produkt wählen",
+            "Hier starten: Chancenbewertungen",
+            "Wählen Sie ein Produkt und bauen Sie einen klaren Weg zur ersten Provision.",
+            "So funktioniert Affiliate-Marketing",
+            "Nutzen Sie Claude als Forschungs- und Content-Partner.",
+            "Erstellen Sie UGC-Anzeigen, die wie Empfehlungen wirken.",
+            "Bereit für Ihr erstes Produkt?",
+            "Kontakt aufnehmen →",
+          ],
+        };
+        var interfaceTargets = [
+          ".navlinks a",
+          ".hero .hero-cta a",
+          ".niche-head h2",
+          ".ladder-head h2",
+          ".belief h2",
+          ".claude-section#claude h2",
+          ".claude-section#ugc h2",
+          ".cta-section h2",
+        ];
+        var interfaceOriginal = [];
+        interfaceTargets.forEach(function (selector) {
+          document.querySelectorAll(selector).forEach(function (element) {
+            interfaceOriginal.push({
+              element: element,
+              text: element.textContent,
+            });
+          });
+        });
+        languageSelect.addEventListener("change", function () {
+          var translation = translations[this.value] || translations.en;
+          earningTitle.textContent = translation.title;
+          earningCopy.textContent = translation.copy;
+          earningNote.textContent = translation.note;
+          languageStatus.textContent = translation.status;
+          document.documentElement.lang = this.value;
+          var copy =
+            interfaceTranslations[this.value] || interfaceTranslations.en;
+          var index = 0;
+          interfaceOriginal.forEach(function (item) {
+            item.element.textContent = copy[index] || item.text;
+            index++;
+          });
+          languagePopup.classList.remove("open");
+        });
+        reasonSelect.addEventListener("change", function () {
+          languageStatus.textContent =
+            "Reason selected: " + this.options[this.selectedIndex].text;
+        });
+
+        var whatsappLaunch = document.getElementById("whatsapp-launch");
+        var whatsappChat = document.getElementById("whatsapp-chat");
+        var whatsappClose = document.getElementById("whatsapp-close");
+        var whatsappUrl =
+          "https://wa.me/923158242773?text=Salam%20Anas%2C%20mujhe%20affiliate%20program%20ke%20bare%20mein%20details%20chahiye.";
+        whatsappLaunch.addEventListener("click", function () {
+          whatsappChat.classList.add("open");
+        });
+        whatsappClose.addEventListener("click", function () {
+          window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+          whatsappChat.classList.remove("open");
+        });
+
+        var marketplaces = [
+          {
+            name: "Amazon",
+            url: function (q) {
+              return "https://www.amazon.com/s?k=" + encodeURIComponent(q);
+            },
+          },
+          {
+            name: "eBay",
+            url: function (q) {
+              return (
+                "https://www.ebay.com/sch/i.html?_nkw=" + encodeURIComponent(q)
+              );
+            },
+          },
+          {
+            name: "Walmart",
+            url: function (q) {
+              return (
+                "https://www.walmart.com/search?q=" + encodeURIComponent(q)
+              );
+            },
+          },
+          {
+            name: "Temu",
+            url: function (q) {
+              return (
+                "https://www.temu.com/search_result.html?search_key=" +
+                encodeURIComponent(q)
+              );
+            },
+          },
+        ];
+        document
+          .querySelectorAll(".marketplaces")
+          .forEach(function (container) {
+            var query = container.getAttribute("data-product");
+            container.innerHTML =
+              '<span class="marketplaces-label">Shop this lane</span>' +
+              marketplaces
+                .map(function (market) {
+                  return (
+                    '<a class="market-link" href="' +
+                    market.url(query) +
+                    '" target="_blank" rel="noopener noreferrer">' +
+                    market.name +
+                    " ↗</a>"
+                  );
+                })
+                .join("");
+          });
+
+        var niches = [
+          {
+            rank: 1,
+            score: 85,
+            name: "AI Productivity & Writing Tools",
+            copy: "Screen-record a tool that saves three hours a week and let curiosity do the sharing.",
+            tags: ["Faceless", "AI-Ready"],
+          },
+          {
+            rank: 2,
+            score: 84,
+            name: "AI Video & Avatar Creation Tools",
+            copy: "The video looks handmade. It isn't. That gap is the entire hook.",
+            tags: ["Faceless", "AI-Ready"],
+          },
+          {
+            rank: 3,
+            score: 81,
+            name: "Personal Finance & Budgeting Apps",
+            copy: "Money anxiety never goes out of style — neither does the content that fixes it.",
+            tags: ["High-Intent", "Evergreen"],
+          },
+          {
+            rank: 4,
+            score: 78,
+            name: "Health Supplements",
+            copy: "TikTok Shop's fastest-growing category, built entirely on \u201cwhat I take daily\u201d routines.",
+            tags: ["Beginner-Friendly", "Recurring"],
+          },
+          {
+            rank: 5,
+            score: 76,
+            name: "Home Workout & Fitness Apps",
+            copy: "Transformation content that never runs out of new angles to try.",
+            tags: ["Recurring"],
+          },
+          {
+            rank: 6,
+            score: 76,
+            name: "Mental Health & Journaling Apps",
+            copy: "Deeply personal, deeply shareable — and install-driven commissions.",
+            tags: ["Faceless"],
+          },
+          {
+            rank: 7,
+            score: 76,
+            name: "Remote Work & Digital Nomad Tools",
+            copy: "Aspirational lifestyle content selling tools people genuinely need.",
+            tags: ["AI-Ready", "Recurring"],
+          },
+          {
+            rank: 8,
+            score: 75,
+            name: "Skincare & K-Beauty",
+            copy: "TikTok Shop's single biggest GMV driver, powered by pure transformation.",
+            tags: ["Beginner-Friendly"],
+          },
+          {
+            rank: 9,
+            score: 75,
+            name: "VPN & Cybersecurity Tools",
+            copy: "Explain it in thirty seconds, get paid like it took thirty hours.",
+            tags: ["Faceless", "High-Payout"],
+          },
+          {
+            rank: 10,
+            score: 74,
+            name: "Online Courses & Education",
+            copy: "\u201cI taught myself this\u201d is one of the internet's most-saved content formats.",
+            tags: ["Recurring"],
+          },
+        ];
+
+        var grid = document.getElementById("niche-grid");
+        niches.forEach(function (n) {
+          var card = document.createElement("div");
+          card.className = "n-card reveal";
+          card.innerHTML =
+            '<div class="n-top">' +
+            '<span class="n-rank">RANK 0' +
+            n.rank +
+            "</span>" +
+            '<div class="score-ring" data-score="' +
+            n.score +
+            '" style="--pct:0"><span>0</span></div>' +
+            "</div>" +
+            '<h3 class="hl">' +
+            n.name +
+            "</h3>" +
+            "<p>" +
+            n.copy +
+            "</p>" +
+            '<div class="tags">' +
+            n.tags
+              .map(function (t) {
+                return '<span class="tag">' + t + "</span>";
+              })
+              .join("") +
+            "</div>";
+          grid.appendChild(card);
+          card.addEventListener("click", function () {
+            openModal(
+              '<span class="eyebrow">Opportunity ' +
+                String(n.rank).padStart(2, "0") +
+                " · Score " +
+                n.score +
+                '/100</span><h2 id="modal-title">' +
+                n.name +
+                "</h2><p>" +
+                n.copy +
+                '</p><ul class="detail-list"><li>Best starting angle: ' +
+                n.tags.join(" + ") +
+                "</li><li>Content format: educational demos, comparisons, and real-use stories</li><li>Next step: validate demand, choose one audience, and publish consistently</li></ul>",
+            );
+          });
+        });
+
+        document.querySelectorAll(".p-card").forEach(function (card) {
+          card.addEventListener("click", function (event) {
+            if (event.target.closest(".market-link")) return;
+            var title = card.querySelector("h4").textContent;
+            var description = card.querySelector(".what").textContent;
+            var commission = card
+              .querySelector(".commission")
+              .textContent.replace("Commission", "")
+              .trim();
+            openModal(
+              '<span class="eyebrow">Product playbook</span><h2 id="modal-title">' +
+                title +
+                "</h2><p>" +
+                description +
+                '</p><ul class="detail-list"><li>Use case: demonstrate the product in a focused workflow</li><li>Trust builder: explain both the result and the limitation</li><li>Typical commission: ' +
+                commission +
+                "</li></ul>",
+            );
+          });
+        });
+
+        /* ---- reveal on scroll ---- */
+        var revealEls = document.querySelectorAll(".reveal");
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                if (e.target.classList.contains("n-card"))
+                  animateRing(e.target);
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.18 },
+        );
+        revealEls.forEach(function (el) {
+          io.observe(el);
+        });
+
+        var reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        function animateRing(card) {
+          var ring = card.querySelector(".score-ring");
+          var span = ring.querySelector("span");
+          var target = parseInt(ring.getAttribute("data-score"), 10);
+          if (reduceMotion) {
+            ring.style.setProperty("--pct", target);
+            span.textContent = target;
+            return;
+          }
+          var start = null,
+            duration = 900;
+          function step(ts) {
+            if (!start) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var val = Math.round(eased * target);
+            ring.style.setProperty("--pct", val);
+            span.textContent = val;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+
+        /* ---- custom rounded cursor ---- */
+        var fine = window.matchMedia(
+          "(hover: hover) and (pointer: fine)",
+        ).matches;
+        if (fine && !reduceMotion) {
+          document.body.classList.add("cursor-ready");
+          var dot = document.querySelector(".cursor-dot");
+          var ring = document.querySelector(".cursor-ring");
+          var mx = 0,
+            my = 0,
+            rx = 0,
+            ry = 0;
+          window.addEventListener("mousemove", function (e) {
+            mx = e.clientX;
+            my = e.clientY;
+            dot.style.transform =
+              "translate(" + mx + "px," + my + "px) translate(-50%,-50%)";
+          });
+          (function loop() {
+            rx += (mx - rx) * 0.16;
+            ry += (my - ry) * 0.16;
+            ring.style.transform =
+              "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
+            requestAnimationFrame(loop);
+          })();
+          document
+            .querySelectorAll("a, button, .btn, .n-card, .p-card, .hl")
+            .forEach(function (el) {
+              el.addEventListener("mouseenter", function () {
+                document.body.classList.add("cursor-hover");
+              });
+              el.addEventListener("mouseleave", function () {
+                document.body.classList.remove("cursor-hover");
+              });
+            });
+        }
+      })();
+    </script>
+  </body>
 </html>
